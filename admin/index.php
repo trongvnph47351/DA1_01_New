@@ -19,10 +19,8 @@
         'insertproduct' => (new productController)->insert(),
         'insertcategory' => (new categoryController)->insert(),
         'updatecategory' => (new categoryController)->update($_GET['id']),
+        'updateproduct' => (new productController)->update($_GET['id']),
         'deletecategory' => (new categoryController)->deleteCategory($_GET['id']),
         'deleteproduct' => (new productController) ->deleteProduct($_GET['id'])
     }
 ?>
-  
-
-  

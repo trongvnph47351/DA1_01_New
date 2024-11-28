@@ -313,7 +313,8 @@
                             <div class="product-img">
                                 <span class="pro-label new-label">new</span>
                                 <span class="pro-price-2"><?= $sp['gia'] ?></span>
-                                <a href="?act=detailproduct"><img src="upload/<?= $sp['img'] ?>" alt="" srcset=""></a>
+                                <a href="?act=detailproduct&id=<?= $sp['id'] ?>"><img src="upload/<?= $sp['img'] ?>"
+                                        alt="" srcset=""></a>
                             </div>
                             <div class="product-info clearfix text-center">
                                 <div class="fix">
@@ -323,8 +324,9 @@
                                 <div class="product-action clearfix">
                                     <a href="?act=wishlist" data-bs-toggle="tooltip" data-placement="top"
                                         title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                    <a href="?act=cart" data-bs-toggle="tooltip" data-placement="top"
-                                        title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                                    <a href="<?= ROOT_DIR . '?act=cart&id='. $sp['id']?>" data-bs-toggle="tooltip"
+                                        data-placement="top" title="Add To Cart"><i
+                                            class="zmdi zmdi-shopping-cart-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -338,7 +340,7 @@
 </div>
 <!-- PRODUCT-AREA END -->
 <!-- DISCOUNT-PRODUCT START -->
-<div class="discount-product-area">
+<div class=" discount-product-area">
     <div class="container">
         <div class="row">
             <div class="discount-product-slider dots-bottom-right">
@@ -352,10 +354,14 @@
                                 <span class="onsale-price">$ 80.00</span>
                             </div>
                             <div class="discount-info">
-                                <h1 class="text-dark-red d-none d-md-block">Discount 50%</h1>
-                                <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed does eiusmodes tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim venim, quis nostrud exercitation ullamco laboris.</p>
+                                <h1 class="text-dark-red d-none d-md-block">Discount
+                                    50%</h1>
+                                <p class="d-none d-md-block">Lorem ipsum dolor sit
+                                    amet, consectetur adipiscing
+                                    elit, sed does eiusmodes tempor incididunt ut
+                                    labore et dolore magna aliqua.
+                                    Ut enim ad minim venim, quis nostrud
+                                    exercitation ullamco laboris.</p>
                                 <a href="#" class="button-one font-16px style-3 text-uppercase mt-md-5"
                                     data-text="Buy now">Buy now</a>
                             </div>
@@ -373,10 +379,14 @@
                                 <span class="onsale-price">$ 80.00</span>
                             </div>
                             <div class="discount-info">
-                                <h1 class="text-dark-red d-none d-md-block">Discount 50%</h1>
-                                <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed does eiusmodes tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim venim, quis nostrud exercitation ullamco laboris.</p>
+                                <h1 class="text-dark-red d-none d-md-block">Discount
+                                    50%</h1>
+                                <p class="d-none d-md-block">Lorem ipsum dolor sit
+                                    amet, consectetur adipiscing
+                                    elit, sed does eiusmodes tempor incididunt ut
+                                    labore et dolore magna aliqua.
+                                    Ut enim ad minim venim, quis nostrud
+                                    exercitation ullamco laboris.</p>
                                 <a href="#" class="button-one font-16px style-3 text-uppercase mt-md-5"
                                     data-text="Buy now">Buy now</a>
                             </div>
@@ -394,10 +404,14 @@
                                 <span class="onsale-price">$ 80.00</span>
                             </div>
                             <div class="discount-info">
-                                <h1 class="text-dark-red d-none d-md-block">Discount 50%</h1>
-                                <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed does eiusmodes tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim venim, quis nostrud exercitation ullamco laboris.</p>
+                                <h1 class="text-dark-red d-none d-md-block">Discount
+                                    50%</h1>
+                                <p class="d-none d-md-block">Lorem ipsum dolor sit
+                                    amet, consectetur adipiscing
+                                    elit, sed does eiusmodes tempor incididunt ut
+                                    labore et dolore magna aliqua.
+                                    Ut enim ad minim venim, quis nostrud
+                                    exercitation ullamco laboris.</p>
                                 <a href="#" class="button-one font-16px style-3 text-uppercase mt-md-5"
                                     data-text="Buy now">Buy now</a>
                             </div>
@@ -415,10 +429,14 @@
                                 <span class="onsale-price">$ 80.00</span>
                             </div>
                             <div class="discount-info">
-                                <h1 class="text-dark-red d-none d-md-block">Discount 50%</h1>
-                                <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit, sed does eiusmodes tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim venim, quis nostrud exercitation ullamco laboris.</p>
+                                <h1 class="text-dark-red d-none d-md-block">Discount
+                                    50%</h1>
+                                <p class="d-none d-md-block">Lorem ipsum dolor sit
+                                    amet, consectetur adipiscing
+                                    elit, sed does eiusmodes tempor incididunt ut
+                                    labore et dolore magna aliqua.
+                                    Ut enim ad minim venim, quis nostrud
+                                    exercitation ullamco laboris.</p>
                                 <a href="#" class="button-one font-16px style-3 text-uppercase mt-md-5"
                                     data-text="Buy now">Buy now</a>
                             </div>
@@ -445,8 +463,10 @@
             <div class="col-lg-12 text-center">
                 <!-- Nav tabs -->
                 <ul class="tab-menu nav clearfix">
-                    <li><a class="active" href="#new-arrivals" data-bs-toggle="tab">New Arrivals</a></li>
-                    <li><a href="#best-seller" data-bs-toggle="tab">Best Seller </a></li>
+                    <li><a class="active" href="#new-arrivals" data-bs-toggle="tab">New
+                            Arrivals</a></li>
+                    <li><a href="#best-seller" data-bs-toggle="tab">Best Seller </a>
+                    </li>
                     <li><a href="#most-view" data-bs-toggle="tab">Most View </a></li>
                     <li><a href="#discounts" data-bs-toggle="tab">Discounts</a></li>
                 </ul>
@@ -584,7 +604,8 @@
                                             <a href="#"><i class="zmdi zmdi-star"></i></a>
                                             <a href="#"><i class="zmdi zmdi-star"></i></a>
                                             <a href="#"><i class="zmdi zmdi-star-half"></i></a>
-                                            <a href="#"><i class="zmdi zmdi-star-half"></i></a> </span>
+                                            <a href="#"><i class="zmdi zmdi-star-half"></i></a>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -901,9 +922,9 @@
                                     <a href="single-product.html"><img src="img/product/3.jpg" alt="" /></a>
                                     <div class="product-action clearfix">
                                         <a href="wishlist.html" data-bs-toggle="tooltip" data-placement="top"
-                                            title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a> <a href="#"
-                                            data-bs-toggle="modal" data-bs-target="#productModal" title="Quick View"><i
-                                                class="zmdi zmdi-zoom-in"></i></a>
+                                            title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#productModal"
+                                            title="Quick View"><i class="zmdi zmdi-zoom-in"></i></a>
                                         <a href="#" data-bs-toggle="tooltip" data-placement="top" title="Compare"><i
                                                 class="zmdi zmdi-refresh"></i></a>
                                         <a href="cart.html" data-bs-toggle="tooltip" data-placement="top"
@@ -1425,8 +1446,8 @@
                                         <p class="floatright hidden-sm">Furniture</p>
                                     </div>
                                     <div class="fix">
-                                        <span class="pro-price floatleft">$ 55.20</span> <span
-                                            class="pro-rating floatright">
+                                        <span class="pro-price floatleft">$ 55.20</span>
+                                        <span class="pro-rating floatright">
                                             <a href="#"><i class="zmdi zmdi-star"></i></a>
                                             <a href="#"><i class="zmdi zmdi-star"></i></a>
                                             <a href="#"><i class="zmdi zmdi-star"></i></a>
@@ -1530,8 +1551,8 @@
                                             <a href="#"><i class="zmdi zmdi-star"></i></a>
                                             <a href="#"><i class="zmdi zmdi-star"></i></a>
                                             <a href="#"><i class="zmdi zmdi-star"></i></a>
-                                            <a href="#"><i class="zmdi zmdi-star-half"></i></a> <a href="#"><i
-                                                    class="zmdi zmdi-star-half"></i></a>
+                                            <a href="#"><i class="zmdi zmdi-star-half"></i></a>
+                                            <a href="#"><i class="zmdi zmdi-star-half"></i></a>
                                         </span>
                                     </div>
                                 </div>
@@ -1567,20 +1588,27 @@
                                 <div class="post-meta fix">
                                     <div class="post-date floatleft"><span class="text-dark-red">30</span></div>
                                     <div class="post-year floatleft">
-                                        <p class="text-uppercase text-dark-red mb-0">June, 2021</p>
+                                        <p class="text-uppercase text-dark-red mb-0">
+                                            June, 2021</p>
                                         <h4 class="post-title"><a href="#" tabindex="0">Farniture drawing
                                                 2021</a></h4>
                                     </div>
                                 </div>
                                 <div class="like-share fix">
-                                    <a href="#"><i class="zmdi zmdi-favorite"></i><span>89 Like</span></a>
-                                    <a href="#"><i class="zmdi zmdi-comments"></i><span>59 Comments</span></a>
-                                    <a href="#"><i class="zmdi zmdi-share"></i><span>29 Share</span></a>
+                                    <a href="#"><i class="zmdi zmdi-favorite"></i><span>89
+                                            Like</span></a>
+                                    <a href="#"><i class="zmdi zmdi-comments"></i><span>59
+                                            Comments</span></a>
+                                    <a href="#"><i class="zmdi zmdi-share"></i><span>29
+                                            Share</span></a>
                                 </div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the
-                                    majority have suffered If you are going to use a passage Lorem Ipsum, you
+                                <p>There are many variations of passages of Lorem Ipsum
+                                    available, but the
+                                    majority have suffered If you are going to use a
+                                    passage Lorem Ipsum, you
                                     alteration in some form.</p>
-                                <a href="#" class="button-2 text-dark-red">Read more...</a>
+                                <a href="#" class="button-2 text-dark-red">Read
+                                    more...</a>
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-5">
@@ -1601,20 +1629,27 @@
                                 <div class="post-meta fix">
                                     <div class="post-date floatleft"><span class="text-dark-red">30</span></div>
                                     <div class="post-year floatleft">
-                                        <p class="text-uppercase text-dark-red mb-0">June, 2021</p>
+                                        <p class="text-uppercase text-dark-red mb-0">
+                                            June, 2021</p>
                                         <h4 class="post-title"><a href="#" tabindex="0">Farniture drawing
                                                 2021</a></h4>
                                     </div>
                                 </div>
                                 <div class="like-share fix">
-                                    <a href="#"><i class="zmdi zmdi-favorite"></i><span>89 Like</span></a>
-                                    <a href="#"><i class="zmdi zmdi-comments"></i><span>59 Comments</span></a>
-                                    <a href="#"><i class="zmdi zmdi-share"></i><span>29 Share</span></a>
+                                    <a href="#"><i class="zmdi zmdi-favorite"></i><span>89
+                                            Like</span></a>
+                                    <a href="#"><i class="zmdi zmdi-comments"></i><span>59
+                                            Comments</span></a>
+                                    <a href="#"><i class="zmdi zmdi-share"></i><span>29
+                                            Share</span></a>
                                 </div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the
-                                    majority have suffered If you are going to use a passage Lorem Ipsum, you
+                                <p>There are many variations of passages of Lorem Ipsum
+                                    available, but the
+                                    majority have suffered If you are going to use a
+                                    passage Lorem Ipsum, you
                                     alteration in some form.</p>
-                                <a href="#" class="button-2 text-dark-red">Read more...</a>
+                                <a href="#" class="button-2 text-dark-red">Read
+                                    more...</a>
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-5">

@@ -11,9 +11,11 @@
             require_once 'views/clients/home.php';
         }
         function products(){
+            $sanpham = $this->homeModel->allSanpham();
             require_once 'views/clients/products.php';
         }
         function category(){
+            
             require_once 'views/clients/category.php';
         }
         function news(){
@@ -22,15 +24,49 @@
         function contact(){
             require_once 'views/clients/contact.php';
         }
-        function detailproduct(){
+        public function detailProduct($id){
+            $oneProduct = $this->homeModel->findProductById($id);
             require_once 'views/clients/detailproduct.php';
         }
         function detailNew(){
             require_once 'views/clients/detailnew.php';
         }
 
-        function cart(){
-            require_once 'views/clients/cart.php';
+        function addcart(){
+          // Tạo giỏ hàng
+          $carts = $_SESSION['cart']??[];
+          // lấy sản phẩm theo id
+          $id =$_GET['id'];
+          $product = (new Product)->findProductById($id);
+
+         
+            if(isset($carts[$id])){
+                $carts[$id]['quantity']+=1;
+            }else{
+                $carts[$id]=[
+                    'ten_san_pham'=>$product['ten_san_pham'],
+                
+                    'img'=>$product['img'],
+                    'gia'=>$product['gia'],
+                    'quanty' => 1,
+                     
+                ];
+            }
+            // lưa giỏ hàng vào ss
+          $_SESSION['cart']=$carts;
+          print_r($carts);
+          die;
+  
+          
+          
+          
+          
+        }
+        function viewcart()  {
+            $carts =$_SESSION['cart'] ?? [];
+            
+            
+            require 'views/clients/viewcart.php';
         }
         function checkout(){
             require 'views/clients/checkout.php';

@@ -14,9 +14,10 @@ session_start();
         'category' => (new homeController())->category(),
         'news' => (new homeController())->news(),
         'contact' => (new homeController())->contact(),
-        'detailproduct' => (new homeController())->detailproduct(),
+        'detailproduct' => (new homeController())->detailproduct($_GET['id']),
         'detailnew' => (new homeController())->detailnew(),
-        'cart' => (new homeController())->cart(),
+        'viewcart' => (new homeController())->viewcart(),
+        'addcart' => (new homeController())->addcart(),
         'checkout' => (new homeController())->checkout(),
         'order' => (new homeController())->order(),
         'wishlist' => (new homeController())->wishlist(),
@@ -24,5 +25,6 @@ session_start();
         'dangky' =>(new homeController())->dangky(),
         'dangnhap' =>(new homeController())->dangnhap(),
         'dangxuat'=>(new homeController())->dangxuat(),
+    
     }
 ?>

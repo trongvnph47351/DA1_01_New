@@ -12,6 +12,13 @@
             $stmt-> execute();
             return $stmt-> fetchAll();
         }
+        public function findProductById($id) {
+            // $sql = "SELECT *, danh_muc.ten_danh_muc, san_pham.id
+            // FROM san_pham
+            // JOIN danh_muc ON san_pham.id_danh_muc = danh_muc.id ";
+            $sql = "select * from san_pham where id = $id";
+            return $this->conn->query($sql)->fetch();
+        }
         public function dangky($ten_dang_nhap, $so_dien_thoai, $dia_chi, $email, $mat_khau) {
             $sql = "INSERT INTO tai_khoan (ten_dang_nhap, mat_khau,so_dien_thoai, email, dia_chi) 
             VALUES (:ten_dang_nhap, :mat_khau,:so_dien_thoai, :email, :dia_chi)";

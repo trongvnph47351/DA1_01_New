@@ -8,6 +8,7 @@
 
         public function home(){
             $sanpham = $this->homeModel->allSanpham();
+            $spnew = $this->homeModel->addnew();
             require_once 'views/clients/home.php';
         }
         function products(){
@@ -18,9 +19,7 @@
             
             require_once 'views/clients/category.php';
         }
-        function news(){
-            require_once 'views/clients/news.php';
-        }
+       
         function contact(){
             require_once 'views/clients/contact.php';
         }
@@ -32,41 +31,17 @@
             require_once 'views/clients/detailnew.php';
         }
 
-        function addcart(){
-          // Tạo giỏ hàng
-          $carts = $_SESSION['cart']??[];
-          // lấy sản phẩm theo id
-          $id =$_GET['id'];
-          $product = (new Product)->findProductById($id);
-
-         
-            if(isset($carts[$id])){
-                $carts[$id]['quantity']+=1;
-            }else{
-                $carts[$id]=[
-                    'ten_san_pham'=>$product['ten_san_pham'],
-                
-                    'img'=>$product['img'],
-                    'gia'=>$product['gia'],
-                    'quanty' => 1,
-                     
-                ];
-            }
-            // lưa giỏ hàng vào ss
-          $_SESSION['cart']=$carts;
-          print_r($carts);
-          die;
-  
-          
-          
-          
-          
-        }
         function viewcart()  {
-            $carts =$_SESSION['cart'] ?? [];
+          
             
             
             require 'views/clients/viewcart.php';
+        }
+        function cart()  {
+          
+            
+            
+            require 'views/clients/cart.php';
         }
         function checkout(){
             require 'views/clients/checkout.php';

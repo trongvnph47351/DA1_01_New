@@ -108,40 +108,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach($carts as $id => $cart) :?>
-                                                        <tr>
-                                                            <td class="product-thumbnail  text-left">
-                                                                <!-- Single-product start -->
-                                                                <div class="single-product">
-                                                                    <div class="product-img">
-                                                                        <a href="single-product.html">
-                                                                            <img' src="<?= $cart['img']?>" alt="" />
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="product-info">
-                                                                        <h4 class="post-title"><a
-                                                                                class="text-light-black" href="#">
-                                                                                <?= $cart['ten_san_pham']?></a></h4>
-                                                                        </h4>
 
-                                                                    </div>
-                                                                </div>
-                                                                <!-- Single-product end -->
-                                                            </td>
-                                                            <td class="product-price">
-                                                                <?= $cart['gia']?>VNĐ</td>
-                                                            <td class="product-quantity">
-                                                                <div class="cart-plus-minus">
-                                                                    <input type="text" value="02" name="qtybutton"
-                                                                        class="cart-plus-minus-box">
-                                                                </div>
-                                                            </td>
-                                                            <td class="product-subtotal">$112.00</td>
-                                                            <td class="product-remove">
-                                                                <a href="#"><i class="zmdi zmdi-close"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                        <?php endforeach ?>
                                                     </tbody>
                                                 </table>
                                             </div>

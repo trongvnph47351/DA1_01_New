@@ -12,12 +12,12 @@ session_start();
         '/' => (new homeController())->home(),
         'products' => (new homeController())->products(),
         'category' => (new homeController())->category(),
-        'news' => (new homeController())->news(),
+      
         'contact' => (new homeController())->contact(),
         'detailproduct' => (new homeController())->detailproduct($_GET['id']),
         'detailnew' => (new homeController())->detailnew(),
-        'viewcart' => (new homeController())->viewcart(),
-        'addcart' => (new homeController())->addcart(),
+        
+        'cart' => (new homeController())->cart(),
         'checkout' => (new homeController())->checkout(),
         'order' => (new homeController())->order(),
         'wishlist' => (new homeController())->wishlist(),

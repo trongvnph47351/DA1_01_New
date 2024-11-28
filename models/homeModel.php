@@ -19,6 +19,13 @@
             $sql = "select * from san_pham where id = $id";
             return $this->conn->query($sql)->fetch();
         }
+        public function addnew(){
+            $sql= "SELECT * FROM san_pham WHERE 1 order by id desc limit 2";
+            $sttm = $this->conn->prepare($sql);
+             $sttm->execute();
+             return $sttm->fetchAll(PDO::FETCH_ASSOC); // Lấy tất cả sản phẩm
+            
+                }
         public function dangky($ten_dang_nhap, $so_dien_thoai, $dia_chi, $email, $mat_khau) {
             $sql = "INSERT INTO tai_khoan (ten_dang_nhap, mat_khau,so_dien_thoai, email, dia_chi) 
             VALUES (:ten_dang_nhap, :mat_khau,:so_dien_thoai, :email, :dia_chi)";

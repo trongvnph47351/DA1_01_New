@@ -16,7 +16,8 @@ session_start();
         'contact' => (new homeController())->contact(),
         'detailproduct' => (new homeController())->detailproduct($_GET['id']),
         'detailnew' => (new homeController())->detailnew(),
-        
+        'addTocart'=> (new homeController())->addtocart(),
+        'deletecart' =>(new homeController())->deletecart(),
         'cart' => (new homeController())->cart(),
         'checkout' => (new homeController())->checkout(),
         'order' => (new homeController())->order(),
@@ -25,6 +26,7 @@ session_start();
         'dangky' =>(new homeController())->dangky(),
         'dangnhap' =>(new homeController())->dangnhap(),
         'dangxuat'=>(new homeController())->dangxuat(),
+        'add-cart' =>(new homeController())->addTocart(),
     
     }
 ?>

@@ -47,6 +47,69 @@
         </div>
     </div>
 </div>
+<div class="header-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 col-7">
+                <div class="logo text-md-center">
+                    <a href="index.html"><img src="img/logo/logo.png" alt="" /></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-5">
+                <div class="mini-cart text-end">
+                    <ul>
+                        <li>
+                            <a class="cart-icon" href="#">
+                                <i class="zmdi zmdi-shopping-cart"></i>
+                                <span>3</span>
+                            </a>
+                            <div class="mini-cart-brief text-left">
+                                <div class="cart-items">
+                                    <p class="mb-0">You have <span>03 items</span> in your shopping bag</p>
+                                </div>
+                                <div class="all-cart-product clearfix">
+                                    <div class="single-cart clearfix">
+                                        <div class="cart-photo">
+                                            <a href="#"><img src="img/cart/1.jpg" alt="" /></a>
+                                        </div>
+                                        <div class="cart-info">
+                                            <h5><a href="#">dummy product name</a></h5>
+                                            <p class="mb-0">Price : $ 100.00</p>
+                                            <p class="mb-0">Qty : 02 </p>
+                                            <span class="cart-delete"><a href="#"><i
+                                                        class="zmdi zmdi-close"></i></a></span>
+                                        </div>
+                                    </div>
+                                    <div class="single-cart clearfix">
+                                        <div class="cart-photo">
+                                            <a href="#"><img src="img/cart/2.jpg" alt="" /></a>
+                                        </div>
+                                        <div class="cart-info">
+                                            <h5><a href="#">dummy product name</a></h5>
+                                            <p class="mb-0">Price : $ 300.00</p>
+                                            <p class="mb-0">Qty : 01 </p>
+                                            <span class="cart-delete"><a href="#"><i
+                                                        class="zmdi zmdi-close"></i></a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-totals">
+                                    <h5 class="mb-0">Total <span class="floatright">$500.00</span></h5>
+                                </div>
+                                <div class="cart-bottom  clearfix">
+                                    <a href="cart.html" class="button-one floatleft text-uppercase"
+                                        data-text="View cart">View cart</a>
+                                    <a href="checkout.html" class="button-one floatright text-uppercase"
+                                        data-text="Check out">Check out</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Mobile-menu end -->
 <!-- SLIDER-BANNER-AREA START -->
 <section class="slider-banner-area clearfix">
@@ -367,130 +430,143 @@
                                     </h4>
                                 </div>
                                 <div class="product-action clearfix">
-                                    <a href="?act=cart" data-bs-toggle="tooltip" data-placement="top"
-                                        title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+
+                                    <form action="index.php?act=addTocart" method="post">
+
+                                        <input type="hidden" name="id" value="<?= $sp['id'] ?>">
+                                        <input type="hidden" name="img" value="<?= $sp['img'] ?>">
+                                        <input type="hidden" name="ten_san_pham" value="<?= $sp['ten_san_pham'] ?>">
+                                        <input type="hidden" name="gia" value="<?= $sp['gia'] ?>">
+                                        <input type="submit" name="addtocart" id="" class="btn btn-primary"
+                                            value="Thêm vào giỏ hàng">
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+
+                    </div>
                     <?php } ?>
                 </div>
             </div>
+
+
         </div>
-
-
     </div>
-</div>
-<!-- PRODUCT-AREA END -->
-<!-- DISCOUNT-PRODUCT START -->
-<div class="discount-product-area discount-2">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-8">
-                <div class="row">
-                    <div class="discount-product-slider dots-bottom-right">
-                        <!-- single-discount-product start -->
-                        <div class="col-lg-12">
-                            <div class="discount-product">
-                                <div class="row">
-                                    <div class="col-lg-5 col-md-5 col-sm-6">
-                                        <a href="single-blog.html"> <img src="assets/img/discount/5.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-7 col-md-7 col-sm-6">
-                                        <div class="discount-info">
-                                            <h1 class="text-dark-red">Discount 50%</h1>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed does
-                                                eiusmodes tempor incididunt ut labore labore et labore et dolore magna
-                                                aliqua. Ut enim ad minim venim.</p>
-                                            <a class="button-2 text-dark-red text-uppercase" href="#">GET DISCOUNT <i
-                                                    class="zmdi zmdi-long-arrow-right"></i></a>
+    <!-- PRODUCT-AREA END -->
+    <!-- DISCOUNT-PRODUCT START -->
+    <div class="discount-product-area discount-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <div class="row">
+                        <div class="discount-product-slider dots-bottom-right">
+                            <!-- single-discount-product start -->
+                            <div class="col-lg-12">
+                                <div class="discount-product">
+                                    <div class="row">
+                                        <div class="col-lg-5 col-md-5 col-sm-6">
+                                            <a href="single-blog.html"> <img src="assets/img/discount/5.jpg" alt="" />
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-7 col-md-7 col-sm-6">
+                                            <div class="discount-info">
+                                                <h1 class="text-dark-red">Discount 50%</h1>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                                    sed does
+                                                    eiusmodes tempor incididunt ut labore labore et labore
+                                                    et dolore
+                                                    magna
+                                                    aliqua. Ut enim ad minim venim.</p>
+                                                <a class="button-2 text-dark-red text-uppercase" href="#">GET DISCOUNT
+                                                    <i class="zmdi zmdi-long-arrow-right"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- single-discount-product end -->
+                            <!-- single-discount-product end -->
 
-                    </div>
-                </div>
-            </div>
-            <!-- up-comming-product start -->
-            <div class="col-lg-4 col-md-4">
-                <div class="up-comming-product">
-                    <div class="up-comming-img">
-                        <a href="#"><img src="assets/img/product/up-comming.jpg" alt="" /></a>
-                    </div>
-                    <div class="up-comming-info text-center">
-                        <div class="up-comming-brief">
-                            <h4 class="post-title"><a href="#">Indoor Furniture</a></h4>
-                            <h4 class="comming-pro-price">$ 200.00</h4>
-                        </div>
-                        <div class="count-down">
-                            <div data-countdown="2022/10/08"></div>
                         </div>
                     </div>
                 </div>
+                <!-- up-comming-product start -->
+                <div class="col-lg-4 col-md-4">
+                    <div class="up-comming-product">
+                        <div class="up-comming-img">
+                            <a href="#"><img src="assets/img/product/up-comming.jpg" alt="" /></a>
+                        </div>
+                        <div class="up-comming-info text-center">
+                            <div class="up-comming-brief">
+                                <h4 class="post-title"><a href="#">Indoor Furniture</a></h4>
+                                <h4 class="comming-pro-price">$ 200.00</h4>
+                            </div>
+                            <div class="count-down">
+                                <div data-countdown="2022/10/08"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- up-comming-product end -->
             </div>
-            <!-- up-comming-product end -->
         </div>
     </div>
-</div>
-<!-- DISCOUNT-PRODUCT END -->
-<!-- PURCHASE-ONLINE-AREA START -->
-<div class="purchase-online-area pt-80 product-style-2">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title text-center">
-                    <h2 class="title-border">Tất Cả Sản Phẩm</h2>
+    <!-- DISCOUNT-PRODUCT END -->
+    <!-- PURCHASE-ONLINE-AREA START -->
+    <div class="purchase-online-area pt-80 product-style-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <h2 class="title-border">Tất Cả Sản Phẩm</h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12  text-center">
-                <!-- Nav tabs -->
-                <ul class="tab-menu nav clearfix">
-                    <li><a class="active" href="#new-arrivals" data-bs-toggle="tab">Sản Phẩm Mới</a></li>
-                    <li><a href="#best-seller" data-bs-toggle="tab">Khuyến Mãi</a></li>
-                </ul>
-            </div>
-            <div class="tab-pane" id="discounts">
-                <div class="row">
-                    <!-- Single-product start -->
-                    <?php
+            <div class="row">
+                <div class="col-lg-12  text-center">
+                    <!-- Nav tabs -->
+                    <ul class="tab-menu nav clearfix">
+                        <li><a class="active" href="#new-arrivals" data-bs-toggle="tab">Sản Phẩm Mới</a>
+                        </li>
+                        <li><a href="#best-seller" data-bs-toggle="tab">Khuyến Mãi</a></li>
+                    </ul>
+                </div>
+                <div class="tab-pane" id="discounts">
+                    <div class="row">
+                        <!-- Single-product start -->
+                        <?php
 											foreach($sanpham as $key => $sp){
 										?>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="single-product">
-                            <div class="product-img">
-                                <span class="pro-label new-label">new</span>
-                                <span class="price pro-price-2"><?= $sp['gia'] ?>đ</span>
-                                <a href="?act=detailproduct&id=<?= $sp['id'] ?>"><img src="upload/<?= $sp['img'] ?>"
-                                        alt="" srcset=""></a>
-                            </div>
-                            <div class="product-info clearfix text-center">
-                                <div class="fix">
-                                    <h4 class="post-title"><a
-                                            href="?act=detailproduct&id=<?= $sp['id'] ?>"><?= $sp['ten_san_pham'] ?></a>
-                                    </h4>
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <span class="pro-label new-label">new</span>
+                                    <span class="price pro-price-2"><?= $sp['gia'] ?>đ</span>
+                                    <a href="?act=detailproduct&id=<?= $sp['id'] ?>"><img src="upload/<?= $sp['img'] ?>"
+                                            alt="" srcset=""></a>
                                 </div>
-                                <div class="product-action clearfix">
-                                    <a href="?act=cart" data-bs-toggle="tooltip" data-placement="top"
-                                        title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                                <div class="product-info clearfix text-center">
+                                    <div class="fix">
+                                        <h4 class="post-title"><a
+                                                href="?act=detailproduct&id=<?= $sp['id'] ?>"><?= $sp['ten_san_pham'] ?></a>
+                                        </h4>
+                                    </div>
+                                    <div class="product-action clearfix">
+                                        <a href="?act=cart" data-bs-toggle="tooltip" data-placement="top"
+                                            title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php }
+                        <?php }
 										?>
-                    <!-- Single-product end -->
+                        <!-- Single-product end -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 </div>
 <!-- PURCHASE-ONLINE-AREA END -->
@@ -523,12 +599,14 @@
                             <div class="post-date floatleft"><span class="text-dark-red">30</span></div>
                             <div class="post-year floatleft">
                                 <p class="text-uppercase text-dark-red mb-0">June, 2021</p>
-                                <h4 class="post-title"><a href="?act=detailnew" tabindex="0">Farniture drawing 2021</a>
+                                <h4 class="post-title"><a href="?act=detailnew" tabindex="0">Farniture drawing
+                                        2021</a>
                                 </h4>
                             </div>
                         </div>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered If you are going to use a passage Lorem Ipsum, you alteration in some form.</p>
+                            suffered If you are going to use a passage Lorem Ipsum, you alteration in some form.
+                        </p>
                         <a href="#" class="button-2 text-dark-red">Read more...</a>
                     </div>
                 </div>

@@ -25,6 +25,7 @@
         }
         public function detailProduct($id){
             $oneProduct = $this->homeModel->findProductById($id);
+           
             require_once 'views/clients/detailproduct.php';
         }
         function detailNew(){
@@ -43,7 +44,77 @@
             
             require 'views/clients/cart.php';
         }
-        function checkout(){
+        function addtocart() {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addtocart'])) {
+            
+                $id = $_POST['id'];
+                $img = $_POST['img'];
+                $ten_san_pham = $_POST['ten_san_pham'];
+                $gia = (float)$_POST['gia']; 
+                $soluong = isset($_POST['quantity']) ? (int)$_POST['quantity'] : 1; 
+        
+                if (!isset($_SESSION['mycart'])) {
+                    $_SESSION['mycart'] = [];
+                }
+        
+                $productExists = false;
+                foreach ($_SESSION['mycart'] as &$cartItem) {
+                    if ($cartItem[0] == $id) {
+                        $cartItem[4] += $soluong; 
+                        $cartItem[5] = $cartItem[4] * $cartItem[2]; 
+                        $productExists = true;
+                        break;
+                    }
+                }
+        
+               
+                if (!$productExists) {
+                    $tinhtien = $soluong * $gia;
+                    $padd = [$id, $ten_san_pham, $gia, $img, $soluong, $tinhtien];
+                    array_push($_SESSION['mycart'], $padd);
+                }
+            }
+        
+            
+            require_once 'views/clients/cart.php';
+        }
+        function deletecart() {
+            if(isset($_GET['id'])&&($_GET['id'])){
+                $id = $_GET['id'];
+                if(isset($_SESSION['mycart'])&& !empty($_SESSION['mycart'])){
+                    foreach($_SESSION['mycart'] as $key => $cart){
+                        if($cart[0] == $id){
+                            unset($_SESSION['mycart'][$key]);
+                            break;
+                        }
+                    }
+                }
+            }
+            header("Location: ?act=cart");
+            exit;
+        }
+        // function addTocart(){
+           
+        //     $carts = $_SESSION['cart'] ?? [];
+        //     $id =$_GET['id'];
+        //     $oneProduct = (new Product)->findProductById($id);
+        //     if(isset($carts[$id])){
+        //         $carts[$id]['quantity'] +=1;
+        //     }else{
+        //         $carts[$id]=[
+        //             'ten_san_pham'=> $oneProduct['ten_san_pham'],
+        //             'gia'=> $oneProduct['gia'],
+        //             'img'=> $oneProduct['img'],
+        //             'quantity'=> 1,
+        //         ];
+        //     }
+        //     $_SESSION['cart']= $carts;
+        //     $url = $_SESSION['URI'];
+            
+        //     return header("Location:" . $url);
+        // }
+       
+        function checkout(): void{
             require 'views/clients/checkout.php';
         }
         function order(){

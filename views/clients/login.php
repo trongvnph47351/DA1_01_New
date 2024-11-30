@@ -85,21 +85,20 @@
                 <!-- Form Đăng nhập -->
                 <div class="col-lg-6">
                     <div class="customer-login text-left">
-                        <h4 class="title-1 title-border text-uppercase mb-30">Registered customers</h4>
-                        <p class="text-gray">If you have an account with us, Please login!
+                        <h4 class="title-1 title-border text-uppercase mb-30">KHÁCH HÀNG ĐÃ ĐĂNG KÝ</h4>
+                        <p class="text-gray">Nếu bạn đã có tài khoản, vui lòng đăng nhập!
                         </p>
                         <form action="?act=dangnhap" method="POST">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Email here..."
-                                    name="email">
+                                <input type="email" class="form-control" id="email" placeholder="Email..." name="email">
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Password"
+                                <input type="password" class="form-control" id="password" placeholder="Password..."
                                     name="password">
                             </div>
-                            <button type="submit" class="btn btn-primary mt-2 w-100">Login</button>
+                            <button type="submit" class="btn btn-primary mt-2 w-100">ĐĂNG NHẬP</button>
                         </form>
                     </div>
                 </div>
@@ -107,12 +106,12 @@
                 <!-- Form Đăng ký -->
                 <div class="col-lg-6">
                     <div class="customer-login text-left">
-                        <h4 class="title-1 title-border text-uppercase mb-30">New customers</h4>
-                        <p class="text-gray">Please fill in the form to register!</p>
+                        <h4 class="title-1 title-border text-uppercase mb-30">KHÁCH HÀNG MỚI</h4>
+                        <p class="text-gray">Vui lòng điền vào mẫu để đăng ký!</p>
                         <form action="?act=dangky" method="post">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Your Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Your name here..."
+                                <label for="name" class="form-label">Tên của bạn</label>
+                                <input type="text" class="form-control" id="name" placeholder="Tên của bạn..."
                                     name="name">
                             </div>
                             <div class="mb-3">
@@ -126,26 +125,22 @@
                                     name="pass">
                             </div>
                             <div class="mb-3">
-                                <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="phone" placeholder="Phone"
+                                <label for="phone" class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-control" id="phone" placeholder="Số điện thoại..."
                                     name="sodienthoai">
                             </div>
                             <div class="mb-3">
-                                <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="Address"
+                                <label for="address" class="form-label">Địa chỉ</label>
+                                <input type="text" class="form-control" id="address" placeholder="Địa chỉ..."
                                     name="diachi">
                             </div>
-                            <div class="mb-3">
-                                <label for="confirm-pass" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirm-pass"
-                                    placeholder="Confirm password" name="newpass">
-                            </div>
+
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="newsletter" name="newsletter"
-                                    checked><label class="form-check-label" for="newsletter">Sign up for our
-                                    newsletter!</label>
+                                    checked><label class="form-check-label" for="newsletter">Đăng ký để nhận bản tin
+                                    chúng tôi!</label>
                             </div>
-                            <button type="submit" class="btn btn-success mt-2 w-100">Register</button>
+                            <button type="submit" class="btn btn-primary mt-2 w-100">ĐĂNG KÝ</button>
                         </form>
                     </div>
                 </div>

@@ -108,10 +108,74 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <?php
+                                                        $tong = 0; 
+                                                        if (isset($_SESSION['mycart']) && !empty($_SESSION['mycart'])) {
+                                                            foreach ($_SESSION['mycart'] as $cart) {
+                                                             
+                                                                $gia = (float)$cart[2]; 
+                                                                $ten_san_pham = $cart[1]; 
+                                                                $img = $cart[3]; 
+                                                                $soluong = (int)$cart[4]; 
+                                                                $tinhtien = (float)$cart[5];
 
+                                                            
+                                                                $tong += $tinhtien;
+                                                        ?>
+                                                        <tr>
+                                                            <td class="product-thumbnail text-left">
+                                                                <div class="single-product">
+                                                                    <div class="product-img">
+
+                                                                        <a href="index.php?act=spchitiet"><img
+                                                                                src="upload/<?= $img ?>" width="50"
+                                                                                alt=""></a>
+                                                                    </div>
+                                                                    <div class="product-info">
+
+                                                                        <h4 class="post-title"><a
+                                                                                class="text-light-black"
+                                                                                href="#"><?= $ten_san_pham ?></a></h4>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <td class="product-price">
+                                                                <?= number_format($gia, 0, ',', '.') ?> đ</td>
+
+                                                            <td class="product-quantity"><?= $soluong ?></td>
+
+                                                            <td class="product-subtotal">
+                                                                <?= number_format($tinhtien, 0, ',', '.') ?> đ</td>
+                                                            <td class="product-remove">
+
+                                                                <a href="?act=deletecart&id=<?= $cart[0] ?>"><i
+                                                                        class="zmdi zmdi-close"></i></a>
+
+                                                            </td>
+                                                        </tr>
+                                                        <?php
+                                                            }
+                                                            ?>
+                                                        <tr>
+                                                            <td colspan="4" style="text-align: right;">Tổng tiền:</td>
+                                                            <td><?= number_format($tong, 0, ',', '.') ?> đ</td>
+                                                        </tr>
+                                                        <?php
+                                                        } else {
+                                                            echo "<tr><td colspan='5' style='text-align: center;'>Giỏ hàng trống</td></tr>";
+                                                        }
+                                                        ?>
                                                     </tbody>
                                                 </table>
                                             </div>
+                                        </div>
+
+
+                                        <div class="button-group">
+                                            <a href="?act=home"> <input class="button primary-button" type="submit"
+                                                    name="" id="" value="Tiếp tục mua hàng"></a>
+
                                         </div>
 
                                         <div class="row">
@@ -129,6 +193,72 @@
                                     </form>
                                 </div>
                                 <!-- shopping-cart end -->
+                                <style>
+                                /* Tổng thể nhóm nút */
+                                .button-group {
+                                    display: flex;
+                                    gap: 10px;
+                                    /* Khoảng cách giữa các nút */
+                                    justify-content: flex-start;
+                                    /* Căn trái */
+                                    align-items: center;
+                                    /* Căn giữa theo chiều dọc */
+                                }
+
+                                /* Kiểu dáng chung cho nút */
+                                .button {
+                                    text-decoration: none;
+                                    /* Loại bỏ gạch dưới */
+                                    display: inline-block;
+                                    padding: 10px 20px;
+                                    border-radius: 5px;
+                                    /* Bo tròn góc */
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    text-align: center;
+                                    transition: all 0.3s ease;
+                                    /* Hiệu ứng hover */
+                                }
+
+                                /* Nút chính (primary) */
+                                .primary-button {
+                                    background-color: #007bff;
+                                    /* Màu xanh dương */
+                                    color: #ffffff;
+                                    /* Chữ trắng */
+                                    border: 2px solid #007bff;
+                                }
+
+                                .primary-button:hover {
+                                    background-color: #0056b3;
+                                    /* Màu xanh đậm hơn */
+                                    color: #ffffff;
+                                    border-color: #0056b3;
+                                }
+
+                                /* Nút phụ (secondary) */
+                                .secondary-button {
+                                    background-color: #ffffff;
+                                    /* Nền trắng */
+                                    color: #007bff;
+                                    /* Chữ xanh dương */
+                                    border: 2px solid #007bff;
+                                }
+
+                                .secondary-button:hover {
+                                    background-color: #007bff;
+                                    color: #ffffff;
+                                    /* Đổi chữ thành màu trắng */
+                                }
+
+                                /* Hiệu ứng tròn hơn khi hover */
+                                .button:hover {
+                                    transform: scale(1.05);
+                                    /* Phóng to nhẹ */
+                                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                                    /* Đổ bóng */
+                                }
+                                </style>
                             </div>
                         </div>
                     </div>

@@ -20,8 +20,8 @@
 
     <!-- all css here -->
     <?php
-			require_once 'components/linkcss.php';
-		?>
+    require_once 'components/linkcss.php';
+    ?>
 </head>
 
 <body>
@@ -29,9 +29,9 @@
     <div class="wrapper bg-dark-white">
 
         <!-- HEADER-AREA START -->
-        <?php 
-				require_once 'components/header.php';
-			?>
+        <?php
+        require_once 'components/header.php';
+        ?>
         <!-- HEADER-AREA END -->
         <!-- Mobile-menu start -->
         <div class="mobile-menu-area">
@@ -108,70 +108,81 @@
                                 <div class="fix mb-20">
                                     <span class="pro-price">Giá: <?= $oneProduct['gia'] ?> VND</span>
                                 </div>
-                                <div class="clearfix">
-                                    <div class="cart-plus-minus">
-                                        <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
-                                    </div>
-                                    <div class="product-action clearfix">
-                                        <a href="?act=cart" data-bs-toggle="tooltip" data-placement="top"
-                                            title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                    </div>
-                                </div>
-                                <!-- Single-pro-slider Small-photo start -->
-                                <div class="single-pro-slider single-sml-photo slider-nav">
-                                    <div>
-                                        <img src="upload/<?= $oneProduct['img'] ?>" alt="" />
-                                    </div>
-                                </div>
-                                <!-- Single-pro-slider Small-photo end -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single-product end -->
-                </div>
-                <!-- single-product-tab start -->
-                <div class="single-pro-tab">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="single-pro-tab-menu">
-                                <!-- Nav tabs -->
-                                <ul class="nav d-block">
-                                    <li><a href="#description" data-bs-toggle="tab">Mô tả</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div class="tab-pane" id="description">
-                                    <div class="pro-tab-info pro-description">
-                                        <h3 class="tab-title title-border mb-30"><?= $oneProduct['ten_san_pham'] ?></h3>
-                                        <p><?= $oneProduct['mo_ta'] ?></p>
+                                <form action="index.php?act=addTocart" method="post">
 
-                                    </div>
+                                    <input type="hidden" name="id" value="<?= $oneProduct['id'] ?>">
+                                    <input type="hidden" name="img" value="<?= $oneProduct['img'] ?>">
+                                    <input type="hidden" name="ten_san_pham" value="<?= $oneProduct['ten_san_pham'] ?>">
+                                    <input type="hidden" name="gia" value="<?= $oneProduct['gia'] ?>">
+
+                                    <label for="qty">Số lượng sản phẩm</label>
+                                    <div class="clearfix">
+                                        <div class="cart-plus-minus">
+                                            <input type="text" value="01" name="quantity" class="cart-plus-minus-box">
+                                        </div>
+
+                                        <input type="submit" name="addtocart" id="" class="btn btn-primary"
+                                            value="Thêm vào giỏ hàng">
+                                </form>
+                                <div class="product-action clearfix">
+
+                                </div>
+                            </div>
+                            <!-- Single-pro-slider Small-photo start -->
+                            <div class="single-pro-slider single-sml-photo slider-nav">
+                                <div>
+                                    <img src="upload/<?= $oneProduct['img'] ?>" alt="" />
+                                </div>
+                            </div>
+                            <!-- Single-pro-slider Small-photo end -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Single-product end -->
+            </div>
+            <!-- single-product-tab start -->
+            <div class="single-pro-tab">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="single-pro-tab-menu">
+                            <!-- Nav tabs -->
+                            <ul class="nav d-block">
+                                <li><a href="#description" data-bs-toggle="tab">Mô tả</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane" id="description">
+                                <div class="pro-tab-info pro-description">
+                                    <h3 class="tab-title title-border mb-30"><?= $oneProduct['ten_san_pham'] ?></h3>
+                                    <p><?= $oneProduct['mo_ta'] ?></p>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- single-product-tab end -->
             </div>
+            <!-- single-product-tab end -->
         </div>
-        <!-- PRODUCT-AREA END -->
-        <!-- FOOTER START -->
-        <?php
-				require_once 'components/footer.php';
-			?>
-        <!-- FOOTER END -->
+    </div>
+    <!-- PRODUCT-AREA END -->
+    <!-- FOOTER START -->
+    <?php
+    require_once 'components/footer.php';
+    ?>
+    <!-- FOOTER END -->
     </div>
     <!-- WRAPPER END -->
 
     <!-- all js here -->
     <?php
-			require_once 'components/linkjs.php';
-		?>
+    require_once 'components/linkjs.php';
+    ?>
 </body>
 
 <!-- Mirrored from template.hasthemes.com/hurst-v1/hurst/single-product.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Jun 2024 12:04:50 GMT -->
 
-</html>
+</html>​

@@ -117,6 +117,7 @@
         function checkout(): void{
             require 'views/clients/checkout.php';
         }
+       
         function order(){
             require_once 'views/clients/order.php';
         }

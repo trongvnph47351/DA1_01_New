@@ -173,12 +173,16 @@
 
 
                                         <div class="button-group">
-                                            <a href="?act=home"> <input class="button primary-button" type="submit"
-                                                    name="" id="" value="Tiếp tục mua hàng"></a>
+                                            <a href="?act=home" class="button-one submit-button mt-15"
+                                                data-text="Tiếp tục mua hàng">Tiếp tục mua
+                                                hàng</a>
+                                            <a href="?act=checkout" class="button-one submit-button mt-15"
+                                                data-text="Thanh toán">Thanh toán
+                                            </a>
 
                                         </div>
 
-                                        <div class="row">
+                                        <div class=" row">
                                             <div class="col-md-6">
                                                 <div class="customer-login mt-30">
                                                     <h4 class="title-1 title-border text-uppercase">Mã giảm giá</h4>
@@ -280,6 +284,7 @@
 		?>
 </body>
 
-<!-- Mirrored from template.hasthemes.com/hurst-v1/hurst/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Jun 2024 12:04:36 GMT -->
+<!-- Mirrored from template.hasthemes.com/hurst-v1/hurst/cart.html by HTTrack Website Copier/3.x [XR&CO' 2014], Sat, 29
+                                            Jun 2024 12:04:36 GMT -->
 
 </html>

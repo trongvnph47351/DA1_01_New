@@ -98,11 +98,27 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="billing-details pr-20">
-                                                        <h4 class="title-1 title-border text-uppercase mb-30">CHI TIẾT
-                                                            THANH TOÁN</h4>
-                                                        <input type="text" placeholder="Tên của bạn...">
-                                                        <input type="text" placeholder="Email của bạn...">
-                                                        <input type="text" placeholder="Số điện thoại của bạn...">
+                                                        <h2 class="title-1 title-border text-uppercase mb-30">CHI TIẾT
+                                                            THANH TOÁN</h2>
+                                                        <h4 class="title-1 title-border text-uppercase mb-30">THÔNG TIN
+                                                            NHẬN HÀNG</h4>
+                                                        <?php if(isset($_SESSION['tai_khoan'])){
+                                                            $name= $_SESSION['tai_khoan']['ten_dang_nhap'];
+                                                            $email = $_SESSION['tai_khoan']['email'];
+                                                            $dia_chi = $_SESSION['tai_khoan']['dia_chi'];
+                                                            $phone = $_SESSION['tai_khoan']['so_dien_thoai'];
+                                                        } else{
+                                                            $name = '';
+                                                            $email='';
+                                                            $dia_chi = '';
+                                                            $phone = '';
+                                                        } ?>
+                                                        <input type="text" placeholder="Tên của bạn..."
+                                                            value="<?= $name?>">
+                                                        <input type="text" placeholder="Email của bạn..."
+                                                            value="<?= $email?>">
+                                                        <input type="text" placeholder="Số điện thoại của bạn..."
+                                                            value="<?= $phone?>">
                                                         <!-- <input type="text" placeholder="Company neme here...">
                                                         <select class="custom-select mb-15">
                                                             <option>Contry</option>
@@ -128,8 +144,8 @@
                                                             <option>Melbourne</option>
                                                             <option>Ottawa</option>
                                                         </select> -->
-                                                        <textarea class="custom-textarea"
-                                                            placeholder="Địa chỉ của bạn..."></textarea>
+                                                        <input type="text" placeholder="Địa chỉ của bạn..."
+                                                            value="<?= $dia_chi?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -140,23 +156,76 @@
                                                         <table>
                                                             <thead>
                                                                 <tr>
-                                                                    <th><strong>Sản phẩm</strong></th>
-                                                                    <th><strong>Số lượng</strong></th>
-                                                                    <th class="text-end"><strong>Tổng cộng</strong></th>
+                                                                    <th class="product-thumbnail">Tên sản phẩm</th>
+                                                                    <th class="product-price">Giá</th>
+                                                                    <th class="product-quantity">Số lượng</th>
+                                                                    <th class="product-subtotal">Tổng</th>
+
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>Tên sản phẩm </td>
-                                                                    <td>2</td>
-                                                                    <td class="text-end">800đ</td>
-                                                                </tr>
+                                                                <?php
+                                                        $tong = 0; 
+                                                        if (isset($_SESSION['mycart']) && !empty($_SESSION['mycart'])) {
+                                                            foreach ($_SESSION['mycart'] as $cart) {
+                                                             
+                                                                $gia = (float)$cart[2]; 
+                                                                $ten_san_pham = $cart[1]; 
+                                                                $img = $cart[3]; 
+                                                                $soluong = (int)$cart[4]; 
+                                                                $tinhtien = (float)$cart[5];
 
+                                                            
+                                                                $tong += $tinhtien;
+                                                        ?>
                                                                 <tr>
-                                                                    <td>Tổng đơn hàng</td>
-                                                                    <td>Số lượng</td>
-                                                                    <td class="text-end">170đ</td>
+                                                                    <td class="product-thumbnail text-left">
+                                                                        <div class="single-product">
+                                                                            <div class="product-img">
+
+                                                                                <a href="index.php?act=spchitiet"><img
+                                                                                        src="upload/<?= $img ?>"
+                                                                                        width="50" alt=""></a>
+                                                                            </div>
+                                                                            <div class="product-info">
+
+                                                                                <h4 class="post-title"><a
+                                                                                        class="text-light-black"
+                                                                                        href="#"><?= $ten_san_pham ?></a>
+                                                                                </h4>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+
+                                                                    <td class="product-price">
+                                                                        <?= number_format($gia, 0, ',', '.') ?>đ</td>
+
+                                                                    <td class="product-quantity"><?= $soluong ?></td>
+
+                                                                    <td class="product-subtotal">
+                                                                        <?= number_format($tinhtien, 0, ',', '.') ?>đ
+                                                                    </td>
+
                                                                 </tr>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                                <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        <td colspan="4"
+                                                                            style="text-align: right; padding: 15px; ">
+                                                                            Tổng tiền:</td>
+                                                                        <td style="text-align: right; padding: 15px;">
+                                                                            <?= number_format($tong, 0, ',', '.') ?> đ
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+
+                                                                <?php
+                                                        } else {
+                                                            echo "<tr><td colspan='5' style='text-align: center;'>Giỏ hàng trống</td></tr>";
+                                                        }
+                                                        ?>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -182,6 +251,7 @@
                                                             <!-- Accordion end -->
                                                             <button class="button-one submit-button mt-15"
                                                                 data-text="đặt hàng" type="submit">ĐẶT HÀNG</button>
+
                                                         </div>
                                                     </div>
                                                 </div>

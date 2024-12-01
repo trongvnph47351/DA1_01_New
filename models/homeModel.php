@@ -63,6 +63,10 @@
                 return false;
             }
         }
+        public function allDanhmuc(){
+            $sql = "select * from danh_muc";
+            return $this->conn->query($sql);
+        }
       
     }
 ?>

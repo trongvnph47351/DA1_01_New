@@ -250,7 +250,8 @@
 
                                                             <!-- Accordion end -->
                                                             <button class="button-one submit-button mt-15"
-                                                                data-text="đặt hàng" type="submit">ĐẶT HÀNG</button>
+                                                                data-text="đặt hàng" type="submit" name="order">ĐẶT
+                                                                HÀNG</button>
 
                                                         </div>
                                                     </div>

@@ -119,6 +119,15 @@
         }
        
         function order(){
+            // tạo bill
+            if(isset($_POST['order'])&&($_POST['order'])){
+                $name=$_POST['ten_nguoi_nhan'];
+                $email=$_POST['email_nguoi_nhan'];
+                $phone=$_POST['sdt_nguoi_nhan'];
+                $date=date('h: i : s d-m-Y');
+              
+                
+            }
             require_once 'views/clients/order.php';
         }
         function wishlist(){

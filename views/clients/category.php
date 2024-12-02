@@ -94,91 +94,25 @@
 							<!-- Widget-Categories start -->
 							<aside class="widget widget-categories  mb-30">
 								<div class="widget-title">
-									<h4>Categories</h4>
+									<h4>Danh mục</h4>
 								</div>
 								<div id="cat-treeview"  class="widget-info product-cat boxscrol2">
 									<ul>
-										<li><span>Chair</span>
-											<ul>
-												<li><a href="#">T-Shirts</a></li>
-												<li><a href="#">Striped Shirts</a></li>
-												<li><a href="#">Half Shirts</a></li>
-												<li><a href="#">Formal Shirts</a></li>
-												<li><a href="#">Bilazers</a></li>
-											</ul>
-										</li>          
-										<li class="open"><span>Furniture</span>
-											<ul>
-												<li><a href="#">Men Bag</a></li>
-												<li><a href="#">Shoes</a></li>
-												<li><a href="#">Watch</a></li>
-												<li><a href="#">T-shirt</a></li>
-												<li><a href="#">Shirt</a></li>
-											</ul>
-										</li>          
-										<li><span>Accessories</span>
-											<ul>
-												<li><a href="#">T-Shirts</a></li>
-												<li><a href="#">Striped Shirts</a></li>
-												<li><a href="#">Half Shirts</a></li>
-												<li><a href="#">Formal Shirts</a></li>
-												<li><a href="#">Bilazers</a></li>
-											</ul>
-										</li>
-										<li><span>Top Brands</span>
-											<ul>
-												<li><a href="#">T-Shirts</a></li>
-												<li><a href="#">Striped Shirts</a></li>
-												<li><a href="#">Half Shirts</a></li>
-												<li><a href="#">Formal Shirts</a></li>
-												<li><a href="#">Bilazers</a></li>
-											</ul>
-										</li>
-										<li><span>Jewelry</span>
-											<ul>
-												<li><a href="#">T-Shirts</a></li>
-												<li><a href="#">Striped Shirts</a></li>
-												<li><a href="#">Half Shirts</a></li>
-												<li><a href="#">Formal Shirts</a></li>
-												<li><a href="#">Bilazers</a></li>
-											</ul>
-										</li>
+
+										<?php
+											foreach($danhmuc as $key => $dm){
+										?>
+
+										<li>
+											<span><?= $dm['ten_danh_muc'] ?></span>
+										</li>    
+										
+										<?php }
+										?>
 									</ul>
 								</div>
 							</aside>
 							<!-- Widget-categories end -->
-							<!-- Shop-Filter start -->
-							<aside class="widget shop-filter mb-30">
-								<div class="widget-title">
-									<h4>Price</h4>
-								</div>
-								<div class="widget-info">
-									<div class="price_filter">
-										<div class="price_slider_amount">
-											<input type="submit"  value="You range :"/> 
-											<input type="text" id="amount" name="price"  placeholder="Add Your Price" /> 
-										</div>
-										<div id="slider-range"></div>
-									</div>
-								</div>
-							</aside>
-							<!-- Shop-Filter end -->
-							<!-- Widget-Size start -->
-							<aside class="widget widget-size mb-30">
-								<div class="widget-title">
-									<h4>Size</h4>
-								</div>
-								<div class="widget-info size-filter clearfix">
-									<ul>
-										<li><a href="#">M</a></li>
-										<li><a class="active" href="#">S</a></li>
-										<li><a href="#">L</a></li>
-										<li><a href="#">SL</a></li>
-										<li><a href="#">XL</a></li>
-									</ul>
-								</div>
-							</aside>
-							<!-- Widget-Size end -->
 							<!-- Widget-banner start -->
 							<aside class="widget widget-banner hidden-sm">
 								<div class="widget-info widget-banner-img">
@@ -195,54 +129,11 @@
 									<ul class="nav d-block shop-tab">
 										<li><a class="active" href="#grid-view" data-bs-toggle="tab"><i class="zmdi zmdi-view-module"></i></a></li>
 									</ul>
-									<div class="showing text-end d-none d-md-block">
-										<p class="mb-0">Showing 01-09 of 17 Results</p>
-									</div>
 								</div>
 								<!-- Tab panes -->
 								<div class="tab-content">
 									<div class="tab-pane active" id="grid-view">							
 										<div class="row">
-											<!-- Single-product start -->
-											<div class="col-lg-4 col-md-6">
-												<div class="single-product">
-													<div class="product-img">
-														<span class="pro-label new-label">new</span>
-														<span class="pro-price-2">$ 56.20</span>
-														<a href="single-product.html"><img src="assets/img/product/11.jpg" alt="" /></a>
-													</div>
-													<div class="product-info clearfix text-center">
-														<div class="fix">
-															<h4 class="post-title"><a href="#">dummy Product name</a></h4>
-														</div>
-														<div class="product-action clearfix">
-															<a href="wishlist.html" data-bs-toggle="tooltip" data-placement="top" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-															<a href="cart.html" data-bs-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- Single-product end -->
-											<!-- Single-product start -->
-											<div class="col-lg-4 col-md-6">
-												<div class="single-product">
-													<div class="product-img">
-														<span class="pro-label new-label">new</span>
-														<span class="pro-price-2">$ 56.20</span>
-														<a href="single-product.html"><img src="assets/img/product/2.jpg" alt="" /></a>
-													</div>
-													<div class="product-info clearfix text-center">
-														<div class="fix">
-															<h4 class="post-title"><a href="#">dummy Product name</a></h4>
-														</div>
-														<div class="product-action clearfix">
-															<a href="wishlist.html" data-bs-toggle="tooltip" data-placement="top" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-															<a href="cart.html" data-bs-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- Single-product end -->
 											<!-- Single-product start -->
 											<div class="col-lg-4 col-md-6">
 												<div class="single-product">
@@ -265,21 +156,6 @@
 										</div>
 									</div>
 								</div>
-								<!-- Pagination start -->
-								<div class="shop-pagination text-center">
-									<div class="pagination">
-										<ul>
-											<li><a href="#"><i class="zmdi zmdi-long-arrow-left"></i></a></li>
-											<li><a href="#">01</a></li>
-											<li><a class="active" href="#">02</a></li>
-											<li><a href="#">03</a></li>
-											<li><a href="#">04</a></li>
-											<li><a href="#">05</a></li>
-											<li><a href="#"><i class="zmdi zmdi-long-arrow-right"></i></a></li>
-										</ul>
-									</div>
-								</div>
-								<!-- Pagination end -->
 							</div>
 							<!-- Shop-Content End -->
 						</div>

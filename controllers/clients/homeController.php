@@ -16,7 +16,7 @@
             require_once 'views/clients/products.php';
         }
         function category(){
-            
+            $danhmuc = $this->homeModel->allDanhmuc();
             require_once 'views/clients/category.php';
         }
        
@@ -31,17 +31,13 @@
         function detailNew(){
             require_once 'views/clients/detailnew.php';
         }
-
+        function new(){
+            require_once 'views/clients/news.php';
+        }
         function viewcart()  {
-          
-            
-            
             require 'views/clients/viewcart.php';
         }
         function cart()  {
-          
-            
-            
             require 'views/clients/cart.php';
         }
         function addtocart() {

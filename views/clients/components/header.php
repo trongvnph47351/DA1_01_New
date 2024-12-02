@@ -61,18 +61,6 @@
                     <div class="mega-menu menu-scroll">
                         <div class="table">
                             <div class="table-cell">
-                                <div class="half-width">
-                                    <ul>
-                                        <li class="menu-title">NIKE</li>
-
-                                    </ul>
-                                </div>
-                                <div class="half-width">
-                                    <ul>
-                                        <li class="menu-title">ADDIDAS</li>
-
-                                    </ul>
-                                </div>
                                 <div class="full-width">
                                     <div class="mega-menu-img">
                                         <a href="single-product.html"><img src="assets/img/megamenu/1.jpg" alt="" /></a>

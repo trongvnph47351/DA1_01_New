@@ -12,7 +12,7 @@ session_start();
         '/' => (new homeController())->home(),
         'products' => (new homeController())->products(),
         'category' => (new homeController())->category(),
-      
+        'news' => (new homeController())->new(),
         'contact' => (new homeController())->contact(),
         'detailproduct' => (new homeController())->detailproduct($_GET['id']),
         'detailnew' => (new homeController())->detailnew(),

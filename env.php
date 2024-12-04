@@ -10,6 +10,5 @@
     define('PATH_ROOT', __DIR__ . '/');
     define('ROOT_DIR', __DIR__ . '/');
     //Đường dẫn website gốc
-const ROOT_URL  = "http://localhost/du_an_01_new/";
-     
+   
 ?>

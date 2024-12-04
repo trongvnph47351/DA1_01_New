@@ -160,7 +160,7 @@
 
 function thanh_toan(){
     if(isset($_SESSION['tai_khoan'])){
-        if(isset($_POST['thanhtoan'])&&$_POST['thanhtoan']){
+        if(isset($_POST['thanhtoan']) && $_POST['thanhtoan']){
             $iduser =$_SESSION['tai_khoan']['id_tai_khoan'] ?? 0;
             $ten_dang_nhap = htmlspecialchars($_POST['ten_dang_nhap']);
             $dia_chi = htmlspecialchars($_POST['dia_chi']);
@@ -171,7 +171,7 @@ function thanh_toan(){
             $ngaydathang = date("Y-m-d H:i:s");
             $tongdonhang= $this->homeModel->tongdonhang();
             $idbill=$this->homeModel->insert_bill($iduser,$ten_dang_nhap, $email, $dia_chi, $phone, $pttt, $tongdonhang, $ngaydathang);
-
+            
             if(!empty($_SESSION['mycart'])){
                 foreach($_SESSION['mycart'] as $cart){
                     $id_san_pham= (int)$cart[0];
@@ -181,25 +181,29 @@ function thanh_toan(){
                     $so_luong= (int)$cart[4];
                     $thanh_tien = (float)$cart[5];
                 
-                $this->homeModel->insert_cart($id_san_pham, $gia_san_pham, $ten_san_pham, $img, $so_luong,$thanh_tien, $idbill);
+                $this->homeModel->insert_cart($id_san_pham, $gia_san_pham, $ten_san_pham, $img, $so_luong, $thanh_tien, $idbill);
                 }
                 unset($_SESSION['mycart']);
             }
-            header("Location:index.php");
-            exit;
-
+          
+            header("Location:" .BASE_URL. '?act=donhang');
+                exit; // Dừng xử lý sau chuyển hướng
         }
     }else{
-        header("Location:" .BASE_URL. '?act=dangky');
+        header("Location:" .BASE_URL. 'index.php?act=dangky');
         exit;
     }
+   
+   
+   
+    
 }
 
 function loadAlldonhang(){
     $iduser= $_SESSION['tai_khoan']['id_tai_khoan'];
-    $listdonhang = $this->homeModel->load_all_bill($iduser);
+    $listbill = $this->homeModel->load_all_bill($iduser);
 
-    require_once "views/clients/order.php";
+    require_once 'views/clients/order.php';
 }
 
 

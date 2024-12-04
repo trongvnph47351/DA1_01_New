@@ -93,197 +93,48 @@
                             <div class="tab-content">
                                 <!-- order-complete start -->
                                 <div class="tab-pane active" id="order-complete">
-                                    <form action="#">
-                                        <div class="thank-recieve bg-white mb-30">
-                                            <p>Cảm ơn bạn. Đơn hàng của bạn đã được nhận</p>
-                                        </div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="product-quantity">Mã đơn hàng</th>
+                                                <th scope="col" class="product-quantity">Ngày đặt hàng</th>
+                                                <th scope="col" class="product-quantity">Số lượng sản phẩmm</th>
+                                                <th scope="col" class="product-quantity">Thành tiền</th>
+                                                <th scope="col" class="product-quantity">Trạng thái đơn hàng</th>
+                                                <th scope="col" class="product-quantity">Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php if(!empty($listbill)){
+                                            foreach($listbill as $don_hang){ ?>
+                                            <tr>
+
+                                                <td>DA1_WD19314 <?=$don_hang['id'];?></td>
+                                                <td> <?= $don_hang['ngay_dat_hang'];?></td>
+                                                <td> <?= $don_hang['so_luong'];?></td>
+                                                <td><?= number_format($don_hang['tong_tien'], 0, ',', '.') ?> đ</td>
+                                                <td> <?= $don_hang['trang_thai'];?></td>
+                                                <td></td>
+                                            </tr>
 
 
-                                        <!-- <div class="order-info bg-white text-center clearfix mb-30 ">
-											
-                                            <div class="single-order-info">
-                                                <h4 class="title-1 text-uppercase text-light-black mb-0">MÃ ĐƠN HÀNG
-                                                </h4>
-                                                <p class="text-uppercase text-light-black mb-0"><strong>m
-                                                        2653257</strong></p>
-                                            </div>
-                                            <div class="single-order-info">
-                                                <h4 class="title-1 text-uppercase text-light-black mb-0">NGÀY ĐẶT</h4>
-                                                <p class="text-uppercase text-light-black mb-0"><strong>june 15,
-                                                        2021</strong></p>
-                                            </div>
-                                            <div class="single-order-info">
-                                                <h4 class="title-1 text-uppercase text-light-black mb-0">TỔNG TIỀN</h4>
-                                                <p class="text-uppercase text-light-black mb-0"><strong>$
-                                                        170.00</strong></p>
-                                            </div>
-                                            <div class="single-order-info">
-                                                <h4 class="title-1 text-uppercase text-light-black mb-0">TRẠNG THÁI
-                                                </h4>
-                                                <p class="text-uppercase text-light-black mb-0"><a
-                                                        href="#"><strong>check payment</strong></a></p>
-                                            </div>
-                                            <div class="single-order-info">
-                                                <h4 class="title-1 text-uppercase text-light-black mb-0">THAO TÁC
-                                                </h4>
-                                                <p class="text-uppercase text-light-black mb-0"><a
-                                                        href="#"><strong>check payment</strong></a></p>
-                                            </div>
-                                        </div> -->
+                                            <?php    } 
+                                    }    else {?>
 
-                                        <div class="order-info bg-white text-center clearfix mb-30">
-                                            <div class="row">
-                                                <!-- Mã đơn hàng -->
-                                                <div class="col-md-2 col-12">
-                                                    <h4 class="title-1 text-uppercase text-light-black mb-0">MÃ ĐƠN HÀNG
-                                                    </h4>
-                                                    <p class="text-uppercase text-light-black mb-0"><strong>m
-                                                            2653257</strong></p>
-                                                </div>
-                                                <!-- Ngày đặt -->
-                                                <div class="col-md-2 col-12">
-                                                    <h4 class="title-1 text-uppercase text-light-black mb-0">NGÀY ĐẶT
-                                                    </h4>
-                                                    <p class="text-uppercase text-light-black mb-0"><strong>June 15,
-                                                            2021</strong></p>
-                                                </div>
-                                                <div class="col-md-2 col-12">
-                                                    <h4 class="title-1 text-uppercase text-light-black mb-0">SỐ LƯỢNG
-                                                    </h4>
-                                                    <p class="text-uppercase text-light-black mb-0"><strong>m
-                                                            2653257</strong></p>
-                                                </div>
-                                                <!-- Tổng tiền -->
-                                                <div class="col-md-2 col-12">
-                                                    <h4 class="title-1 text-uppercase text-light-black mb-0">TỔNG TIỀN
-                                                    </h4>
-                                                    <p class="text-uppercase text-light-black mb-0">
-                                                        <strong>$170.00</strong>
-                                                    </p>
-                                                </div>
-                                                <!-- Trạng thái -->
-                                                <div class="col-md-2 col-12">
-                                                    <h4 class="title-1 text-uppercase text-light-black mb-0">TRẠNG THÁI
-                                                    </h4>
-                                                    <p class="text-uppercase text-light-black mb-0"><a
-                                                            href="#"><strong>Check Payment</strong></a></p>
-                                                </div>
-                                                <!-- Thao tác -->
-                                                <div class="col-md-2 col-12">
-                                                    <h4 class="title-1 text-uppercase text-light-black mb-0">THAO TÁC
-                                                    </h4>
-                                                    <p class="text-uppercase text-light-black mb-0"><a
-                                                            href="#"><strong>Check Payment</strong></a></p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            <tr>
+                                                <td colspan="6" class="text-center"> Không có đơn hàng nào. </td>
+                                            </tr>
+                                            <?php } ?>
 
-                                        <div class="shop-cart-table check-out-wrap">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="our-order payment-details pr-20">
-                                                        <h4 class="title-1 title-border text-uppercase mb-30">ĐƠN HÀNG
-                                                            CỦA BẠN</h4>
-                                                        <table>
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="product-thumbnail">Tên sản phẩm</th>
-                                                                    <th class="product-price">Giá</th>
-                                                                    <th class="product-quantity">Số lượng</th>
-                                                                    <th class="product-subtotal">Tổng</th>
+                                        </tbody>
+                                    </table>
 
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php
-                                                        $tong = 0; 
-                                                        if (isset($_SESSION['mycart']) && !empty($_SESSION['mycart'])) {
-                                                            foreach ($_SESSION['mycart'] as $cart) {
-                                                             
-                                                                $gia = (float)$cart[2]; 
-                                                                $ten_san_pham = $cart[1]; 
-                                                                $img = $cart[3]; 
-                                                                $soluong = (int)$cart[4]; 
-                                                                $tinhtien = (float)$cart[5];
 
-                                                            
-                                                                $tong += $tinhtien;
-                                                        ?>
-                                                                <tr>
-                                                                    <td class="product-thumbnail text-left">
-                                                                        <div class="single-product">
-                                                                            <div class="product-img">
 
-                                                                                <a href="index.php?act=spchitiet"><img
-                                                                                        src="upload/<?= $img ?>"
-                                                                                        width="50" alt=""></a>
-                                                                            </div>
-                                                                            <div class="product-info">
 
-                                                                                <h4 class="post-title"><a
-                                                                                        class="text-light-black"
-                                                                                        href="#"><?= $ten_san_pham ?></a>
-                                                                                </h4>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
 
-                                                                    <td class="product-price">
-                                                                        <?= number_format($gia, 0, ',', '.') ?>đ</td>
 
-                                                                    <td class="product-quantity"><?= $soluong ?></td>
 
-                                                                    <td class="product-subtotal">
-                                                                        <?= number_format($tinhtien, 0, ',', '.') ?>đ
-                                                                    </td>
-
-                                                                </tr>
-                                                                <?php
-                                                            }
-                                                            ?>
-                                                                <table style="width: 100%; border-collapse: collapse;">
-                                                                    <tr>
-                                                                        <td colspan="4"
-                                                                            style="text-align: right; padding: 15px; ">
-                                                                            Tổng tiền:</td>
-                                                                        <td style="text-align: right; padding: 15px;">
-                                                                            <?= number_format($tong, 0, ',', '.') ?> đ
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-
-                                                                <?php
-                                                        } else {
-                                                            echo "<tr><td colspan='5' style='text-align: center;'>Giỏ hàng trống</td></tr>";
-                                                        }
-                                                        ?>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <!-- payment-method -->
-                                                <div class="col-md-6 mt-xs-30">
-                                                    <div class="payment-method  pl-20">
-                                                        <h4 class="title-1 title-border text-uppercase mb-30">PHƯƠNG
-                                                            THỨC THANH TOÁN</h4>
-                                                        <div class="payment-accordion">
-                                                            <!-- Accordion start  -->
-                                                            <h3 class="payment-accordion-toggle active">Thanh toán khi
-                                                                nhận hàng</h3>
-                                                            <div class="payment-content default">
-                                                                <p>Thanh toán bằng tiền mặt khi nhận hàng</p>
-                                                            </div>
-                                                            <!-- Accordion end -->
-                                                            <!-- Accordion start -->
-
-                                                            <!-- Accordion end -->
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
                                 </div>
                                 <!-- order-complete end -->
                             </div>

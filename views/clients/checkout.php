@@ -161,6 +161,7 @@
                                                             <tbody>
                                                                 <?php
                                                         $tong = 0; 
+                                                        $tong_soluong=0;
                                                         if (!empty($_SESSION['mycart'])) {
                                                             foreach ($_SESSION['mycart'] as $cart) {
                                                              
@@ -172,6 +173,7 @@
 
                                                             
                                                                 $tong += $tinhtien;
+                                                                $tong_soluong += $soluong;
                                                         ?>
                                                                 <tr>
                                                                     <td class="product-thumbnail text-left">
@@ -208,6 +210,11 @@
                                                             ?>
                                                                 <table style="width: 100%; border-collapse: collapse;">
                                                                     <tr>
+                                                                        <td colspan="3" style="text-align: right;">Tổng
+                                                                            số lượng:</td>
+                                                                        <td colspan="2"><?= $tong_soluong ?></td>
+                                                                    </tr>
+                                                                    <tr>
                                                                         <td colspan="4"
                                                                             style="text-align: right; padding: 15px; ">
                                                                             Tổng tiền:</td>
@@ -237,7 +244,7 @@
                                                                 NHẬN HÀNG</h3>
                                                             <div class="payment-content default">
                                                                 <input type="radio" id="radio5" value="1" name="pttt"
-                                                                    required>
+                                                                    required checked>
                                                                 <label for="radio5">Thanh toán bằng tiền mặt khi nhận
                                                                     hàng.</label>
                                                             </div>
@@ -255,7 +262,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="submit" name="thanhtoan" value="Thanh toán">
+                                        <input type="submit" name="thanhtoan" value="Thanh toán" class="btn btn-danger">
                                     </form>
                                 </div>
                                 <!-- check-out end -->

@@ -173,7 +173,7 @@
 
 
                                         <div class="button-group">
-                                            <a href="?act=home" class="button-one submit-button mt-15"
+                                            <a href="?act=/" class="button-one submit-button mt-15"
                                                 data-text="Tiếp tục mua hàng">Tiếp tục mua
                                                 hàng</a>
                                             <a href="?act=checkout" class="button-one submit-button mt-15"

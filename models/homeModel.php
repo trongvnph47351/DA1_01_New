@@ -128,7 +128,7 @@
          $stmt->bindParam(':ten_san_pham', $ten_san_pham, PDO::PARAM_STR);
          $stmt->bindParam(':gia_san_pham', $gia_san_pham, PDO::PARAM_STR);
          $stmt->bindParam(':so_luong', $so_luong, PDO::PARAM_INT);
-$stmt->bindParam(':thanh_tien', $thanh_tien, PDO::PARAM_STR);
+         $stmt->bindParam(':thanh_tien', $thanh_tien, PDO::PARAM_STR);
  
         
          $stmt->execute();
@@ -143,6 +143,60 @@ $stmt->bindParam(':thanh_tien', $thanh_tien, PDO::PARAM_STR);
 
 
 
+ function load_one_bill($id)
+ {
+     try {
+         // Câu lệnh SQL sử dụng tham số để tránh SQL Injection
+         $sql = "SELECT * FROM don_hang WHERE id = :id";
+ 
+         // Chuẩn bị câu lệnh
+         $stmt = $this->conn->prepare($sql);
+ 
+         // Gắn giá trị tham số
+         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+ 
+         // Thực thi câu lệnh
+         $stmt->execute();
+ 
+         // Lấy kết quả đầu tiên
+         $bill = $stmt->fetch(PDO::FETCH_ASSOC);
+ 
+         // Trả về kết quả
+         return $bill;
+     } catch (PDOException $e) {
+         // Ghi log lỗi nếu cần
+         error_log("Lỗi khi load hóa đơn: " . $e->getMessage());
+         return false;
+     }
+ }
+
+ 
+ function load_all_bill($iduser)
+{
+ $sql = "SELECT don_hang.*, SUM(chi_tiet_don_hang.so_luong) as so_luong
+         FROM don_hang
+         LEFT JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_don_hang
+         WHERE 1";
+     
+ if ($iduser > 0) {
+     $sql .= " AND don_hang.id_nguoi_nhan = :iduser";
+ }
+     
+ $sql .= "  GROUP BY don_hang.id
+            ORDER BY don_hang.id DESC";
+ 
+ // Prepare and execute the query
+ $stmt = $this->conn->prepare($sql);
+ 
+ if ($iduser > 0) {
+     $stmt->bindParam(':iduser', $iduser, PDO::PARAM_INT);
+ }
+ 
+ $stmt->execute();
+ 
+ // Return the result as an associative array
+ return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 
 
@@ -159,39 +213,39 @@ $stmt->bindParam(':thanh_tien', $thanh_tien, PDO::PARAM_STR);
 
   
    
-    function load_one_bill($id)
-    {
-        try {
+    // function load_one_bill($id)
+    // {
+    //     try {
          
-            $sql = "SELECT * FROM don_hang WHERE id = :id";
-            $stmt = $this->conn->prepare($sql);   
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-           $stmt->execute();      
-            $bill = $stmt->fetch(PDO::FETCH_ASSOC); 
+    //         $sql = "SELECT * FROM don_hang WHERE id = :id";
+    //         $stmt = $this->conn->prepare($sql);   
+    //         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    //        $stmt->execute();      
+    //         $bill = $stmt->fetch(PDO::FETCH_ASSOC); 
   
-            return $bill;
-        } catch (PDOException $e) {
+    //         return $bill;
+    //     } catch (PDOException $e) {
         
-            error_log("Lỗi khi load hóa đơn: " . $e->getMessage());
-            return false;
-        }
-    }
+    //         error_log("Lỗi khi load hóa đơn: " . $e->getMessage());
+    //         return false;
+    //     }
+    // }
     
-    function load_all_bill($iduser){
-        $sql= "SELECT don_hang.*, chi_tiet_don_hang.* FROM don_hang LEFT JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_don_hang WHERE 1";
-        if($iduser > 0){
-            $sql.="AND don_hang.id_nguoi_nhan =:iduser";
+    // function load_all_bill($iduser){
+    //     $sql= "SELECT don_hang.*, chi_tiet_don_hang.* FROM don_hang LEFT JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_don_hang WHERE 1";
+    //     if($iduser > 0){
+    //         $sql .= " AND don_hang.id_nguoi_nhan =:iduser";
             
-        }
-        $sql.= "ORDER BY don_hang.id DESC";
-        $stmt= $this->conn->prepare($sql);
-        if($iduser >0){
-            $stmt->bindParam(':iduser', $iduser, PDO::PARAM_INT);
-        }
-        $stmt->execute();
+    //     }
+    //     $sql.= "ORDER BY don_hang.id DESC";
+    //     $stmt= $this->conn->prepare($sql);
+    //     if($iduser >0){
+    //         $stmt->bindParam(':iduser', $iduser, PDO::PARAM_INT);
+    //     }
+    //     $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+    //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // }
 
     }
 ?>

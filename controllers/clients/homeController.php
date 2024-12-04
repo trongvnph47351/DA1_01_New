@@ -160,7 +160,7 @@
 
 function thanh_toan(){
     if(isset($_SESSION['tai_khoan'])){
-        if(isset($_POST['thanh_toan'])&&$_POST['thanh_toan']){
+        if(isset($_POST['thanhtoan'])&&$_POST['thanhtoan']){
             $iduser =$_SESSION['tai_khoan']['id_tai_khoan'] ?? 0;
             $ten_dang_nhap = htmlspecialchars($_POST['ten_dang_nhap']);
             $dia_chi = htmlspecialchars($_POST['dia_chi']);
@@ -195,6 +195,12 @@ function thanh_toan(){
     }
 }
 
+function loadAlldonhang(){
+    $iduser= $_SESSION['tai_khoan']['id_tai_khoan'];
+    $listdonhang = $this->homeModel->load_all_bill($iduser);
+
+    require_once "views/clients/order.php";
+}
 
 
 

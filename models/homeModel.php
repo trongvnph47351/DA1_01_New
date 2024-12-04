@@ -177,7 +177,21 @@ $stmt->bindParam(':thanh_tien', $thanh_tien, PDO::PARAM_STR);
         }
     }
     
-    
+    function load_all_bill($iduser){
+        $sql= "SELECT don_hang.*, chi_tiet_don_hang.* FROM don_hang LEFT JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_don_hang WHERE 1";
+        if($iduser > 0){
+            $sql.="AND don_hang.id_nguoi_nhan =:iduser";
+            
+        }
+        $sql.= "ORDER BY don_hang.id DESC";
+        $stmt= $this->conn->prepare($sql);
+        if($iduser >0){
+            $stmt->bindParam(':iduser', $iduser, PDO::PARAM_INT);
+        }
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     }
 ?>

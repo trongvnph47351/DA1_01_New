@@ -97,6 +97,8 @@
                                         <div class="thank-recieve bg-white mb-30">
                                             <p>Cảm ơn bạn. Đơn hàng của bạn đã được nhận</p>
                                         </div>
+
+
                                         <!-- <div class="order-info bg-white text-center clearfix mb-30 ">
 											
                                             <div class="single-order-info">

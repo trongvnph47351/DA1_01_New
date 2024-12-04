@@ -28,6 +28,7 @@ session_start();
         'dangxuat'=>(new homeController())->dangxuat(),
         'add-cart' =>(new homeController())->addTocart(),
        
+        
     
     }
 ?>

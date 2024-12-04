@@ -93,7 +93,7 @@
                             <div class="tab-content">
                                 <!-- check-out start -->
                                 <div class="tab-pane active" id="check-out">
-                                    <form action="#">
+                                    <form action="?act=thanh_toan" method="post" enctype="multipart/form-data">
                                         <div class="shop-cart-table check-out-wrap">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -249,15 +249,17 @@
                                                             <!-- Accordion start -->
 
                                                             <!-- Accordion end -->
-                                                            <button class="button-one submit-button mt-15"
-                                                                data-text="đặt hàng" type="submit" name="order">ĐẶT
-                                                                HÀNG</button>
+                                                            <!-- <button class="button-one submit-button mt-15"
+                                                                data-text="đặt hàng" type="submit" name="thanhtoan">ĐẶT
+                                                                HÀNG</button> -->
+
 
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <input type="submit" name="thanhtoan" value="Thanh toán">
                                     </form>
                                 </div>
                                 <!-- check-out end -->

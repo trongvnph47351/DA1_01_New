@@ -1,5 +1,5 @@
 <?php
-   
+
     class homeController{
         public $homeModel;
         public function __construct(){
@@ -40,7 +40,7 @@
         function cart()  {
             require 'views/clients/cart.php';
         }
-        function addtocart() {
+               function addtocart() {
             if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addtocart'])) {
             
                 $id = $_POST['id'];
@@ -89,50 +89,28 @@
             header("Location: ?act=cart");
             exit;
         }
-        // function addTocart(){
-           
-        //     $carts = $_SESSION['cart'] ?? [];
-        //     $id =$_GET['id'];
-        //     $oneProduct = (new Product)->findProductById($id);
-        //     if(isset($carts[$id])){
-        //         $carts[$id]['quantity'] +=1;
-        //     }else{
-        //         $carts[$id]=[
-        //             'ten_san_pham'=> $oneProduct['ten_san_pham'],
-        //             'gia'=> $oneProduct['gia'],
-        //             'img'=> $oneProduct['img'],
-        //             'quantity'=> 1,
-        //         ];
-        //     }
-        //     $_SESSION['cart']= $carts;
-        //     $url = $_SESSION['URI'];
-            
-        //     return header("Location:" . $url);
-        // }
-       
+        
+    
         function checkout(): void{
             require 'views/clients/checkout.php';
         }
        
-        function order(){
-            // tạo bill
-            if(isset($_POST['order'])&&($_POST['order'])){
-                $name=$_POST['ten_nguoi_nhan'];
-                $email=$_POST['email_nguoi_nhan'];
-                $phone=$_POST['sdt_nguoi_nhan'];
-                $date=date('h: i : s d-m-Y');
-              
-                
-            }
-            require_once 'views/clients/order.php';
+        function order() {
+            
+            require 'views/clients/order.php';
+           
+         
+            
         }
+        
+        
         function wishlist(){
             require_once 'views/clients/wishlist.php';
         }
         function myaccount(){
             require_once 'views/clients/my-account.php';
         }
-             public function formlogin()  {
+         function formlogin()  {
             require_once 'views/clients/login.php';
             
         }
@@ -174,6 +152,71 @@
             session_unset();
             header("Location:index.php");
            }
+
+
+
+
+//Phần thanh toán
+
+function thanh_toan(){
+    if(isset($_SESSION['tai_khoan'])){
+        if(isset($_POST['thanh_toan'])&&$_POST['thanh_toan']){
+            $iduser =$_SESSION['tai_khoan']['id_tai_khoan'] ?? 0;
+            $ten_dang_nhap = htmlspecialchars($_POST['ten_dang_nhap']);
+            $dia_chi = htmlspecialchars($_POST['dia_chi']);
+            $phone = htmlspecialchars($_POST['phone']);
+            $email = htmlspecialchars($_POST['email']);
+            $pttt = htmlspecialchars($_POST['pttt']);
+            date_default_timezone_set("Asia/Ho_Chi_Minh");
+            $ngaydathang = date("Y-m-d H:i:s");
+            $tongdonhang= $this->homeModel->tongdonhang();
+            $idbill=$this->homeModel->insert_bill($iduser,$ten_dang_nhap, $email, $dia_chi, $phone, $pttt, $tongdonhang, $ngaydathang);
+
+            if(!empty($_SESSION['mycart'])){
+                foreach($_SESSION['mycart'] as $cart){
+                    $id_san_pham= (int)$cart[0];
+                    $ten_san_pham= htmlspecialchars($cart[1]);
+                    $gia_san_pham= (float)$cart[2];
+                    $img= htmlspecialchars($cart[3]);
+                    $so_luong= (int)$cart[4];
+                    $thanh_tien = (float)$cart[5];
+                
+                $this->homeModel->insert_cart($id_san_pham, $gia_san_pham, $ten_san_pham, $img, $so_luong,$thanh_tien, $idbill);
+                }
+                unset($_SESSION['mycart']);
+            }
+            header("Location:index.php");
+            exit;
+
         }
+    }else{
+        header("Location:" .BASE_URL. '?act=dangky');
+        exit;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
+        }
+        
+    
 
 ?>

@@ -99,26 +99,7 @@
             header("Location: ?act=cart");
             exit;
         }
-        // function addTocart(){
-           
-        //     $carts = $_SESSION['cart'] ?? [];
-        //     $id =$_GET['id'];
-        //     $oneProduct = (new Product)->findProductById($id);
-        //     if(isset($carts[$id])){
-        //         $carts[$id]['quantity'] +=1;
-        //     }else{
-        //         $carts[$id]=[
-        //             'ten_san_pham'=> $oneProduct['ten_san_pham'],
-        //             'gia'=> $oneProduct['gia'],
-        //             'img'=> $oneProduct['img'],
-        //             'quantity'=> 1,
-        //         ];
-        //     }
-        //     $_SESSION['cart']= $carts;
-        //     $url = $_SESSION['URI'];
-            
-        //     return header("Location:" . $url);
-        // }
+    
        
         function checkout(): void{
             require 'views/clients/checkout.php';
@@ -212,7 +193,7 @@ function thanh_toan(){
             }
           
             header("Location:" .BASE_URL. '?act=donhang');
-                exit; // Dừng xử lý sau chuyển hướng
+                exit;
         }
     }else{
         header("Location:" .BASE_URL. 'index.php?act=dangky');
@@ -220,13 +201,24 @@ function thanh_toan(){
     }
 
 }
-
+// lấy ra tất cả các đơn hàng
 function loadAlldonhang(){
     $iduser= $_SESSION['tai_khoan']['id_tai_khoan'];
     $listbill = $this->homeModel->load_all_bill($iduser);
 
     require_once 'views/clients/order.php';
 }
+function loadChiTietDonHang(){
+    if(isset($_GET['id'])){
+        $id= $_GET['id'];
+
+        
+    }
+    $bill=$this->homeModel->load_one_bill($id);
+    $billdetail = $this->homeModel->loadDhchitiet($id);
+    require_once "views/clients/orderdetail.php";
+}
+// trang thai
 
     }
 ?>

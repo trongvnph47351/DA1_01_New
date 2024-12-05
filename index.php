@@ -30,8 +30,8 @@ session_start();
         'thanh_toan' =>(new homeController())->thanh_toan(),
         'donhang' => (new homeController())->loadAlldonhang(),
         'catepro' =>(new homeController())->catePro($_GET['iddm']),
+         'chitietdonhang'=>(new homeController())->loadChiTietDonHang(),
        
-        
     
     }
 ?>

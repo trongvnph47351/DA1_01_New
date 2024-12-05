@@ -32,68 +32,68 @@
         <?php 
 				require_once 'components/header.php';
 			?>
-			<!-- HEADER-AREA END -->
-			<!-- Mobile-menu start -->
-			<div class="mobile-menu-area">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-xs-12 d-block d-md-none">
-							<div class="mobile-menu">
-								<nav id="dropdown">
-									<ul>
-										<li><a href="index.html">TRANG CHỦ</a>
-											<ul>
-												<li><a href="index.html">TRANG CHỦ</a></li>
-											</ul>
-										</li>
-										<li><a href="shop.html">SẢN PHẨM</a></li>
-										<li><a href="shop-sidebar.html">DANH MỤC</a></li>
-										<li><a href="blog.html">TIN TỨC</a></li>
-										<li><a href="contact.html">LIÊN HỆ</a></li>
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Mobile-menu end -->
-			<!-- HEADING-BANNER START -->
-			<div class="heading-banner-area overlay-bg">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="heading-banner">
-								<div class="heading-banner-title">
-									<h2>ĐƠN HÀNG</h2>
-								</div>
-								<div class="breadcumbs pb-15">
-									<ul>
-										<li><a href="?act=/">TRANG CHỦ</a></li>
-										<li>ĐƠN HÀNG</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- HEADING-BANNER END -->
-			<!-- ORDER-AREA START -->
-			<div class="shopping-cart-area  pt-80 pb-80">
-				<div class="container">	
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="shopping-cart">
-								<!-- Nav tabs -->
-								<?php
+        <!-- HEADER-AREA END -->
+        <!-- Mobile-menu start -->
+        <div class="mobile-menu-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 d-block d-md-none">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul>
+                                    <li><a href="index.html">TRANG CHỦ</a>
+                                        <ul>
+                                            <li><a href="index.html">TRANG CHỦ</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="shop.html">SẢN PHẨM</a></li>
+                                    <li><a href="shop-sidebar.html">DANH MỤC</a></li>
+                                    <li><a href="blog.html">TIN TỨC</a></li>
+                                    <li><a href="contact.html">LIÊN HỆ</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile-menu end -->
+        <!-- HEADING-BANNER START -->
+        <div class="heading-banner-area overlay-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading-banner">
+                            <div class="heading-banner-title">
+                                <h2>ĐƠN HÀNG</h2>
+                            </div>
+                            <div class="breadcumbs pb-15">
+                                <ul>
+                                    <li><a href="?act=/">TRANG CHỦ</a></li>
+                                    <li>ĐƠN HÀNG</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- HEADING-BANNER END -->
+        <!-- ORDER-AREA START -->
+        <div class="shopping-cart-area  pt-80 pb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="shopping-cart">
+                            <!-- Nav tabs -->
+                            <?php
 									require_once 'components/navtab.php';
 								?>
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <!-- order-complete start -->
                                 <div class="tab-pane active" id="order-complete">
-                                    <table class="table">
+                                    <table class="table table-striped table-bordered text-center align-middle">
                                         <thead>
                                             <tr>
                                                 <th scope="col" class="product-quantity">Mã đơn hàng</th>
@@ -106,15 +106,41 @@
                                         </thead>
                                         <tbody>
                                             <?php if(!empty($listbill)){
-                                            foreach($listbill as $don_hang){ ?>
+                                            foreach($listbill as $don_hang){ 
+                                               
+                                                $order_status = $this->homeModel->get_ttdh($don_hang['trang_thai']);
+                                                if($don_hang['trang_thai'] ==3){
+                                                    $action= '<a href="?act=update&id='. $don_hang['id'] .'" > <button> Đã nhận hàng </button> </a>';
+                                                    
+                                                }elseif($don_hang['trang_thai'] ==0){
+                                                    $action= '<a href="?act=huydonhang&id='. $don_hang['id'] .'" > <button> Hủy </button> </a>';
+                                                    
+                                                    
+                                                }elseif($don_hang['trang_thai'] ==5){
+                                                    $action= '<a href="?act=update&id='. $don_hang['id'] .'" > <button> Đã hủy </button> </a>';
+                                                }else{
+                                                    $action ='<button>Không có hành động</button>';
+                                                }
+                                                
+                                                
+                                                
+                                                ?>
+
+
                                             <tr>
 
                                                 <td>DA1_WD19314 <?=$don_hang['id'];?></td>
                                                 <td> <?= $don_hang['ngay_dat_hang'];?></td>
                                                 <td> <?= $don_hang['so_luong'];?></td>
                                                 <td><?= number_format($don_hang['tong_tien'], 0, ',', '.') ?> đ</td>
-                                                <td> <?= $don_hang['trang_thai'];?></td>
-                                                <td></td>
+                                                <td> <?= htmlspecialchars($order_status)?></td>
+                                                <td>
+                                                    <a href="index.php?act=chitietdonhang&id=<?= $don_hang['id'] ?>"><button
+                                                            class="button">Xem chi tiết</button></a>
+
+
+                                                    <button class="btn btn-danger btn-sm">Hủy đơn hàng</button>
+                                                </td>
                                             </tr>
 
 

@@ -210,7 +210,45 @@
  // Return the result as an associative array
  return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+function loadDhchitiet($id){
+    $sql="SELECT chi_tiet_don_hang.*,don_hang.ten_nguoi_nhan, don_hang.email_nguoi_nhan, don_hang.sdt_nguoi_nhan, don_hang.dia_chi_nguoi_nhan, don_hang.ngay_dat_hang
+    FROM chi_tiet_don_hang JOIN don_hang ON chi_tiet_don_hang.id_don_hang = don_hang.id WHERE chi_tiet_don_hang.id_don_hang =:id 
+    ORDER BY chi_tiet_don_hang.id DESC ";
+    $stmt= $this->conn->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
+// trạng thái đơn hàng
+function get_ttdh($n) 
+ {
+    switch($n){
+        case '0':
+            $tt = "Chờ xác nhận";
+            break;
+        case '1':
+            $tt = "Đã xác nhận";
+            break;
+        case '2':
+            $tt ="Đang giao hàng";
+            break;
+        case '3':
+            $tt = "Đã giao hàng";
+            break;
+        case '4':
+            $tt="Giao hàng thành công";
+            break;
+        case '5':
+            $tt="Đơn hàng bị hủy";
+            break;
+        default:
+         $tt="Đơn hàng mới";
+         break;
+        
+    }
+    return $tt;
+}
 
 
 
@@ -226,39 +264,7 @@
 
   
    
-    // function load_one_bill($id)
-    // {
-    //     try {
-         
-    //         $sql = "SELECT * FROM don_hang WHERE id = :id";
-    //         $stmt = $this->conn->prepare($sql);   
-    //         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    //        $stmt->execute();      
-    //         $bill = $stmt->fetch(PDO::FETCH_ASSOC); 
-  
-    //         return $bill;
-    //     } catch (PDOException $e) {
-        
-    //         error_log("Lỗi khi load hóa đơn: " . $e->getMessage());
-    //         return false;
-    //     }
-    // }
-    
-    // function load_all_bill($iduser){
-    //     $sql= "SELECT don_hang.*, chi_tiet_don_hang.* FROM don_hang LEFT JOIN chi_tiet_don_hang ON don_hang.id = chi_tiet_don_hang.id_don_hang WHERE 1";
-    //     if($iduser > 0){
-    //         $sql .= " AND don_hang.id_nguoi_nhan =:iduser";
-            
-    //     }
-    //     $sql.= "ORDER BY don_hang.id DESC";
-    //     $stmt= $this->conn->prepare($sql);
-    //     if($iduser >0){
-    //         $stmt->bindParam(':iduser', $iduser, PDO::PARAM_INT);
-    //     }
-    //     $stmt->execute();
-
-    //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // }
+   
 
     }
 ?>

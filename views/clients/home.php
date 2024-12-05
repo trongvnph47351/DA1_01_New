@@ -1,28 +1,28 @@
 <?php  require_once "views/clients/components/linkcss.php"?>
 <?php require_once "views/clients/components/header.php"?>
 <div class="mobile-menu-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xs-12 d-block d-md-none">
-                        <div class="mobile-menu">
-                            <nav id="dropdown">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 d-block d-md-none">
+                <div class="mobile-menu">
+                    <nav id="dropdown">
+                        <ul>
+                            <li><a href="?act=/">TRANG CHỦ</a>
                                 <ul>
-                                    <li><a href="?act=/">TRANG CHỦ</a>
-                                        <ul>
-                                            <li><a href="?act=/">TRANG CHỦ</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="?act=products">SẢN PHẨM</a></li>
-                                    <li><a href="?act=category">DANH MỤC</a></li>
-                                    <li><a href="?act=news">TIN TỨC</a></li>
-                                    <li><a href="?act=contact">LIÊN HỆ</a></li>
+                                    <li><a href="?act=/">TRANG CHỦ</a></li>
                                 </ul>
-                            </nav>
-                        </div>
-                    </div>
+                            </li>
+                            <li><a href="?act=products">SẢN PHẨM</a></li>
+                            <li><a href="?act=category">DANH MỤC</a></li>
+                            <li><a href="?act=news">TIN TỨC</a></li>
+                            <li><a href="?act=contact">LIÊN HỆ</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 <div class="header-area">
     <div class="container-fluid">
         <div class="row">
@@ -35,7 +35,7 @@
                 <div class="mini-cart text-end">
                     <ul>
                         <li>
-                            <a class="cart-icon" href="#">
+                            <a class="cart-icon" href="?act=addTocart">
                                 <i class="zmdi zmdi-shopping-cart"></i>
                             </a>
                         </li>
@@ -358,7 +358,8 @@
                                 <div class="fix">
                                     <h4 class="post-title">
                                         <b>
-                                            <a href="?act=detailproduct&id=<?= $sp['id'] ?>"><?= $sp['ten_san_pham'] ?></a>
+                                            <a
+                                                href="?act=detailproduct&id=<?= $sp['id'] ?>"><?= $sp['ten_san_pham'] ?></a>
                                         </b>
                                     </h4>
                                 </div>
@@ -486,7 +487,7 @@
                                         </h4>
                                     </div>
                                     <div class="product-action clearfix">
-                                       <input type="submit" name="addtocart" id="" class="btn btn-primary"
+                                        <input type="submit" name="addtocart" id="" class="btn btn-primary"
                                             value="Thêm vào giỏ hàng">
                                     </div>
                                 </div>

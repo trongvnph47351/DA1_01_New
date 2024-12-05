@@ -1,5 +1,5 @@
 <?php
-    define('BASE_URL', 'http://localhost/du_an_01_new/');
+    define('BASE_URL', 'http://localhost/DA1_01_New/');
 
     define('DB_HOST', 'localhost');
     define('DB_PORT', '3306');
@@ -9,6 +9,6 @@
 
     define('PATH_ROOT', __DIR__ . '/');
     define('ROOT_DIR', __DIR__ . '/');
-    
-     
+    //Đường dẫn website gốc
+   
 ?>

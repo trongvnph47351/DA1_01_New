@@ -27,7 +27,10 @@ session_start();
         'dangnhap' =>(new homeController())->dangnhap(),
         'dangxuat'=>(new homeController())->dangxuat(),
         'add-cart' =>(new homeController())->addTocart(),
+        'thanh_toan' =>(new homeController())->thanh_toan(),
+        'donhang' => (new homeController())->loadAlldonhang(),
        
+        
     
     }
 ?>

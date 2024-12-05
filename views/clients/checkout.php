@@ -93,7 +93,7 @@
                             <div class="tab-content">
                                 <!-- check-out start -->
                                 <div class="tab-pane active" id="check-out">
-                                    <form action="#">
+                                    <form action="?act=thanh_toan" method="post" enctype="multipart/form-data">
                                         <div class="shop-cart-table check-out-wrap">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -102,23 +102,18 @@
                                                             THANH TOÁN</h2>
                                                         <h4 class="title-1 title-border text-uppercase mb-30">THÔNG TIN
                                                             NHẬN HÀNG</h4>
-                                                        <?php if(isset($_SESSION['tai_khoan'])){
-                                                            $name= $_SESSION['tai_khoan']['ten_dang_nhap'];
-                                                            $email = $_SESSION['tai_khoan']['email'];
-                                                            $dia_chi = $_SESSION['tai_khoan']['dia_chi'];
-                                                            $phone = $_SESSION['tai_khoan']['so_dien_thoai'];
-                                                        } else{
-                                                            $name = '';
-                                                            $email='';
-                                                            $dia_chi = '';
-                                                            $phone = '';
-                                                        } ?>
+                                                        <?php 
+                                                          $name = isset($_SESSION['tai_khoan']['ten_dang_nhap']) ? htmlspecialchars($_SESSION['tai_khoan']['ten_dang_nhap']) : '';
+                                                          $email = isset($_SESSION['tai_khoan']['email']) ? htmlspecialchars($_SESSION['tai_khoan']['email']) : '';
+                                                          $address = isset($_SESSION['tai_khoan']['dia_chi']) ? htmlspecialchars($_SESSION['tai_khoan']['dia_chi']) : '';
+                                                          $phone = isset($_SESSION['tai_khoan']['so_dien_thoai']) ? htmlspecialchars($_SESSION['tai_khoan']['so_dien_thoai']) : '';
+                                                     ?>
                                                         <input type="text" placeholder="Tên của bạn..."
-                                                            value="<?= $name?>">
+                                                            value="<?= $name?>" name="ten_dang_nhap">
                                                         <input type="text" placeholder="Email của bạn..."
-                                                            value="<?= $email?>">
+                                                            value="<?= $email?>" name="email">
                                                         <input type="text" placeholder="Số điện thoại của bạn..."
-                                                            value="<?= $phone?>">
+                                                            value="<?= $phone?>" name="phone">
                                                         <!-- <input type="text" placeholder="Company neme here...">
                                                         <select class="custom-select mb-15">
                                                             <option>Contry</option>
@@ -145,7 +140,7 @@
                                                             <option>Ottawa</option>
                                                         </select> -->
                                                         <input type="text" placeholder="Địa chỉ của bạn..."
-                                                            value="<?= $dia_chi?>">
+                                                            value="<?= $address?>" name="dia_chi">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -166,17 +161,19 @@
                                                             <tbody>
                                                                 <?php
                                                         $tong = 0; 
-                                                        if (isset($_SESSION['mycart']) && !empty($_SESSION['mycart'])) {
+                                                        $tong_soluong=0;
+                                                        if (!empty($_SESSION['mycart'])) {
                                                             foreach ($_SESSION['mycart'] as $cart) {
                                                              
                                                                 $gia = (float)$cart[2]; 
-                                                                $ten_san_pham = $cart[1]; 
-                                                                $img = $cart[3]; 
+                                                                $ten_san_pham = htmlspecialchars($cart[1]); 
+                                                                $img = htmlspecialchars($cart[3]); 
                                                                 $soluong = (int)$cart[4]; 
                                                                 $tinhtien = (float)$cart[5];
 
                                                             
                                                                 $tong += $tinhtien;
+                                                                $tong_soluong += $soluong;
                                                         ?>
                                                                 <tr>
                                                                     <td class="product-thumbnail text-left">
@@ -184,26 +181,27 @@
                                                                             <div class="product-img">
 
                                                                                 <a href="index.php?act=spchitiet"><img
-                                                                                        src="upload/<?= $img ?>"
+                                                                                        src="upload/<?= file_exists("upload/$img") ? $img : 'default.png' ?>"
                                                                                         width="50" alt=""></a>
                                                                             </div>
                                                                             <div class="product-info">
 
                                                                                 <h4 class="post-title"><a
                                                                                         class="text-light-black"
-                                                                                        href="#"><?= $ten_san_pham ?></a>
+                                                                                        href="#"><?= $cart[1] ?></a>
                                                                                 </h4>
                                                                             </div>
                                                                         </div>
                                                                     </td>
 
                                                                     <td class="product-price">
-                                                                        <?= number_format($gia, 0, ',', '.') ?>đ</td>
+                                                                        <?= number_format($cart[2], 0, ',', '.') ?>đ
+                                                                    </td>
 
-                                                                    <td class="product-quantity"><?= $soluong ?></td>
+                                                                    <td class="product-quantity"><?= $cart[4] ?></td>
 
                                                                     <td class="product-subtotal">
-                                                                        <?= number_format($tinhtien, 0, ',', '.') ?>đ
+                                                                        <?= number_format($cart[5], 0, ',', '.') ?>đ
                                                                     </td>
 
                                                                 </tr>
@@ -211,6 +209,11 @@
                                                             }
                                                             ?>
                                                                 <table style="width: 100%; border-collapse: collapse;">
+                                                                    <tr>
+                                                                        <td colspan="3" style="text-align: right;">Tổng
+                                                                            số lượng:</td>
+                                                                        <td colspan="2"><?= $tong_soluong ?></td>
+                                                                    </tr>
                                                                     <tr>
                                                                         <td colspan="4"
                                                                             style="text-align: right; padding: 15px; ">
@@ -241,7 +244,7 @@
                                                                 NHẬN HÀNG</h3>
                                                             <div class="payment-content default">
                                                                 <input type="radio" id="radio5" value="1" name="pttt"
-                                                                    required>
+                                                                    required checked>
                                                                 <label for="radio5">Thanh toán bằng tiền mặt khi nhận
                                                                     hàng.</label>
                                                             </div>
@@ -249,14 +252,17 @@
                                                             <!-- Accordion start -->
 
                                                             <!-- Accordion end -->
-                                                            <button class="button-one submit-button mt-15"
-                                                                data-text="đặt hàng" type="submit">ĐẶT HÀNG</button>
+                                                            <!-- <button class="button-one submit-button mt-15"
+                                                                data-text="đặt hàng" type="submit" name="thanhtoan">ĐẶT
+                                                                HÀNG</button> -->
+
 
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <input type="submit" name="thanhtoan" value="Thanh toán" class="btn btn-danger">
                                     </form>
                                 </div>
                                 <!-- check-out end -->

@@ -16,6 +16,7 @@
             require_once 'views/clients/products.php';
         }
         function category(){
+            $sanpham = $this->homeModel->allSanpham();
             $danhmuc = $this->homeModel->allDanhmuc();
             require_once 'views/clients/category.php';
         }
@@ -89,26 +90,7 @@
             header("Location: ?act=cart");
             exit;
         }
-        // function addTocart(){
-           
-        //     $carts = $_SESSION['cart'] ?? [];
-        //     $id =$_GET['id'];
-        //     $oneProduct = (new Product)->findProductById($id);
-        //     if(isset($carts[$id])){
-        //         $carts[$id]['quantity'] +=1;
-        //     }else{
-        //         $carts[$id]=[
-        //             'ten_san_pham'=> $oneProduct['ten_san_pham'],
-        //             'gia'=> $oneProduct['gia'],
-        //             'img'=> $oneProduct['img'],
-        //             'quantity'=> 1,
-        //         ];
-        //     }
-        //     $_SESSION['cart']= $carts;
-        //     $url = $_SESSION['URI'];
-            
-        //     return header("Location:" . $url);
-        // }
+       
        
         function checkout(): void{
             require 'views/clients/checkout.php';

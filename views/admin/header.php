@@ -29,7 +29,7 @@
           <li><a href="?act=products">Sản Phẩm</a></li>
           <li><a href="?act=listkhachhang">Khách Hàng</a></li>
           <li><a href="?act=thongke">Thống Kê</a></li>
-          <li><a href="/X-Shop-DuAnMau/index.php">Đăng Xuất</a></li>
+          <li><a href="/DA1_01_New/index.php">Đăng Xuất</a></li>
         </ul>
       </div>
     </nav>

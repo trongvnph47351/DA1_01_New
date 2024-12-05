@@ -32,28 +32,28 @@
 			<!-- HEADER-AREA END -->
 			<!-- Mobile-menu start -->
 			<div class="mobile-menu-area">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-xs-12 d-block d-md-none">
-							<div class="mobile-menu">
-								<nav id="dropdown">
-									<ul>
-										<li><a href="index.html">TRANG CHỦ</a>
-											<ul>
-												<li><a href="index.html">TRANG CHỦ</a></li>
-											</ul>
-										</li>
-										<li><a href="shop.html">SẢN PHẨM</a></li>
-										<li><a href="shop-sidebar.html">DANH MỤC</a></li>
-										<li><a href="blog.html">TIN TỨC</a></li>
-										<li><a href="contact.html">LIÊN HỆ</a></li>
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 d-block d-md-none">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul>
+                                    <li><a href="?act=/">TRANG CHỦ</a>
+                                        <ul>
+                                            <li><a href="?act=/">TRANG CHỦ</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="?act=products">SẢN PHẨM</a></li>
+                                    <li><a href="?act=category">DANH MỤC</a></li>
+                                    <li><a href="?act=news">TIN TỨC</a></li>
+                                    <li><a href="?act=contact">LIÊN HỆ</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 			<!-- Mobile-menu end -->
 			<!-- HEADING-BANNER START -->
 			<div class="heading-banner-area overlay-bg">

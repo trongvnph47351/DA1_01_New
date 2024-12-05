@@ -1,52 +1,28 @@
 <?php  require_once "views/clients/components/linkcss.php"?>
 <?php require_once "views/clients/components/header.php"?>
 <div class="mobile-menu-area">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 d-block d-md-none">
-                <div class="mobile-menu">
-                    <nav id="dropdown">
-                        <ul>
-                            <li><a href="index.html">home</a>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 d-block d-md-none">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
                                 <ul>
-                                    <li><a href="index.html">Home Version 1</a></li>
-                                    <li><a href="index-2.html">Home Version 2</a></li>
+                                    <li><a href="?act=/">TRANG CHỦ</a>
+                                        <ul>
+                                            <li><a href="?act=/">TRANG CHỦ</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="?act=products">SẢN PHẨM</a></li>
+                                    <li><a href="?act=category">DANH MỤC</a></li>
+                                    <li><a href="?act=news">TIN TỨC</a></li>
+                                    <li><a href="?act=contact">LIÊN HỆ</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="shop.html">products</a></li>
-                            <li><a href="shop-sidebar.html">accesories</a></li>
-                            <li><a href="shop-list.html">lookbook</a></li>
-                            <li><a href="blog.html">blog</a></li>
-                            <li><a href="#">pages</a>
-                                <ul>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
-                                    <li><a href="shop-list.html">Shop List</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="single-product-sidebar.html">Single Product Sidebar</a></li>
-                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="order.html">Order</a></li>
-                                    <li><a href="login.html">login / Registration</a></li>
-                                    <li><a href="my-account.html">My Account</a></li>
-                                    <li><a href="404.html">404</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="single-blog.html">Single Blog</a></li>
-                                    <li><a href="single-blog-sidebar.html">Single Blog Sidebar</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="about.html">about us</a></li>
-                            <li><a href="contact.html">contact</a></li>
-                        </ul>
-                    </nav>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 <div class="header-area">
     <div class="container-fluid">
         <div class="row">
@@ -61,48 +37,7 @@
                         <li>
                             <a class="cart-icon" href="#">
                                 <i class="zmdi zmdi-shopping-cart"></i>
-                                <span>3</span>
                             </a>
-                            <div class="mini-cart-brief text-left">
-                                <div class="cart-items">
-                                    <p class="mb-0">You have <span>03 items</span> in your shopping bag</p>
-                                </div>
-                                <div class="all-cart-product clearfix">
-                                    <div class="single-cart clearfix">
-                                        <div class="cart-photo">
-                                            <a href="#"><img src="img/cart/1.jpg" alt="" /></a>
-                                        </div>
-                                        <div class="cart-info">
-                                            <h5><a href="#">dummy product name</a></h5>
-                                            <p class="mb-0">Price : $ 100.00</p>
-                                            <p class="mb-0">Qty : 02 </p>
-                                            <span class="cart-delete"><a href="#"><i
-                                                        class="zmdi zmdi-close"></i></a></span>
-                                        </div>
-                                    </div>
-                                    <div class="single-cart clearfix">
-                                        <div class="cart-photo">
-                                            <a href="#"><img src="img/cart/2.jpg" alt="" /></a>
-                                        </div>
-                                        <div class="cart-info">
-                                            <h5><a href="#">dummy product name</a></h5>
-                                            <p class="mb-0">Price : $ 300.00</p>
-                                            <p class="mb-0">Qty : 01 </p>
-                                            <span class="cart-delete"><a href="#"><i
-                                                        class="zmdi zmdi-close"></i></a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cart-totals">
-                                    <h5 class="mb-0">Total <span class="floatright">$500.00</span></h5>
-                                </div>
-                                <div class="cart-bottom  clearfix">
-                                    <a href="cart.html" class="button-one floatleft text-uppercase"
-                                        data-text="View cart">View cart</a>
-                                    <a href="checkout.html" class="button-one floatright text-uppercase"
-                                        data-text="Check out">Check out</a>
-                                </div>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -227,7 +162,7 @@
                                     <h3 class="slider-title2 text-uppercase">Nike Pegasus Shoes</h3>
                                 </div>
                                 <div class="wow fadeIn" data-wow-duration="2.5s" data-wow-delay="3.5s">
-                                    <a href="?act=allsanpham" class="button-one style-2 text-uppercase mt-20"
+                                    <a href="?act=products" class="button-one style-2 text-uppercase mt-20"
                                         data-text="Shop now">Shop now</a>
                                 </div>
                             </div>
@@ -322,7 +257,7 @@
                         <div class="customer-login text-left">
                             <form action="#"> <span>Tên đăng nhâp: <?=$ten_dang_nhap?></span>
                     <li>
-                        <a href="">Gior hàng</a>
+                        <a href="">Giỏ hàng</a>
                     </li>
                     <li>
 
@@ -358,15 +293,14 @@
                             <p><a class="text-gray" href="?act=dangky">Đăng ký tài khoản?</a></p>
 
                             <button class="button-one submit-button mt-15" data-text="login"
-                                type="submit">login</button>
+                                type="submit">Login</button>
                         </form>
                     </div>
                 </li>
                 <li><a href="?act=dangky" title="My-Account"><i class="zmdi zmdi-account"></i></a></li>
                 <li><a href="wishlist.html" title="Wishlist"><i class="zmdi zmdi-favorite"></i></a></li>
             </ul>
-            <?php }?>
-
+            <?php } ?>
 
         </div>
     </div>
@@ -553,8 +487,8 @@
                                         </h4>
                                     </div>
                                     <div class="product-action clearfix">
-                                        <a href="?act=cart" data-bs-toggle="tooltip" data-placement="top"
-                                            title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                                       <input type="submit" name="addtocart" id="" class="btn btn-primary"
+                                            value="Thêm vào giỏ hàng">
                                     </div>
                                 </div>
                             </div>

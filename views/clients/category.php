@@ -38,22 +38,22 @@
 							<div class="mobile-menu">
 								<nav id="dropdown">
 									<ul>
-										<li><a href="index.html">TRANG CHỦ</a>
+										<li><a href="?act=/">TRANG CHỦ</a>
 											<ul>
-												<li><a href="index.html">TRANG CHỦ</a></li>
+												<li><a href="?act=/">TRANG CHỦ</a></li>
 											</ul>
 										</li>
-										<li><a href="shop.html">SẢN PHẨM</a></li>
-										<li><a href="shop-sidebar.html">DANH MỤC</a></li>
-										<li><a href="blog.html">TIN TỨC</a></li>
-										<li><a href="contact.html">LIÊN HỆ</a></li>
+										<li><a href="?act=products">SẢN PHẨM</a></li>
+										<li><a href="?act=category">DANH MỤC</a></li>
+										<li><a href="?act=news">TIN TỨC</a></li>
+										<li><a href="?act=contact">LIÊN HỆ</a></li>
 									</ul>
 								</nav>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+        	</div>
 			<!-- Mobile-menu end -->
 			<!-- HEADING-BANNER START -->
 			<div class="heading-banner-area overlay-bg">
@@ -134,25 +134,39 @@
 								<div class="tab-content">
 									<div class="tab-pane active" id="grid-view">							
 										<div class="row">
+
+											<?php  
+												foreach($sanpham as $key => $sp){
+											?>
+
 											<!-- Single-product start -->
 											<div class="col-lg-4 col-md-6">
 												<div class="single-product">
 													<div class="product-img">
-														<span class="pro-price-2">$ 56.20</span>
-														<a href="single-product.html"><img src="assets/img/product/1.jpg" alt="" /></a>
+														<span class="pro-price-2"><?= $sp['gia'] ?></span>
+														<a href="?act=detailproduct&id=<?= $sp['id'] ?>"><img src="upload/<?= $sp['img'] ?>"
+														alt="" srcset=""></a>
 													</div>
 													<div class="product-info clearfix text-center">
 														<div class="fix">
-															<h4 class="post-title"><a href="#">dummy Product name</a></h4>
+															<h4 class="post-title"><a href="?act=detailproduct&id=<?= $sp['id'] ?>"><?= $sp['ten_san_pham'] ?></a></h4>
 														</div>
 														<div class="product-action clearfix">
-															<a href="wishlist.html" data-bs-toggle="tooltip" data-placement="top" title="Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a>
-															<a href="cart.html" data-bs-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+														<form action="index.php?act=addTocart" method="post">
+															<input type="hidden" name="id" value="<?= $sp['id'] ?>">
+															<input type="hidden" name="img" value="<?= $sp['img'] ?>">
+															<input type="hidden" name="ten_san_pham" value="<?= $sp['ten_san_pham'] ?>">
+															<input type="hidden" name="gia" value="<?= $sp['gia'] ?>">
+															<input type="submit" name="addtocart" id="" class="btn btn-primary"
+																value="Thêm vào giỏ hàng">
+														</form>
 														</div>
 													</div>
 												</div>
 											</div>
 											<!-- Single-product end -->
+											<?php }
+											?>
 										</div>
 									</div>
 								</div>

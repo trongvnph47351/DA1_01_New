@@ -11,6 +11,18 @@
             $spnew = $this->homeModel->addnew();
             require_once 'views/clients/home.php';
         }
+        public function catePro($iddm)
+        {
+            if (isset($_GET['iddm']) && $_GET['iddm'] > 0) {
+                $iddm = $_GET['iddm'];
+    
+                $danhmuc = $this->homeModel->allDanhmuc();
+                $catePro = $this->homeModel->allCatePro($iddm);
+                $nameCate = $this->homeModel->load_name_cate($iddm);
+    
+                require_once 'views/clients/product.php';
+            }
+        }
         function products(){
             $sanpham = $this->homeModel->allSanpham();
             require_once 'views/clients/products.php';

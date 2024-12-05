@@ -358,8 +358,7 @@
                                 <div class="fix">
                                     <h4 class="post-title">
                                         <b>
-                                            <a
-                                                href="?act=detailproduct&id=<?= $sp['id'] ?>"><?= $sp['ten_san_pham'] ?></a>
+                                            <a href="?act=detailproduct&id=<?= $sp['id'] ?>"><?= $sp['ten_san_pham'] ?></a>
                                         </b>
                                     </h4>
                                 </div>

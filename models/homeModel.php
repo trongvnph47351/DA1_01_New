@@ -19,6 +19,20 @@
             $sql = "select * from san_pham where id = $id";
             return $this->conn->query($sql)->fetch();
         }
+         public function load_name_cate($iddm){
+            $sql = " SELECT * from danh_muc where id = $iddm";
+            return $this->conn->query($sql)->fetch();
+        }
+        public function allCatePro($id){
+            $sql = "SELECT *, danh_muc.ten_danh_muc, san_pham.id
+            FROM san_pham
+            JOIN danh_muc ON san_pham.id_danh_muc = danh_muc.id 
+            where danh_muc.id= $id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt-> execute();
+            return $stmt-> fetchAll();
+        }
+
         public function addnew(){
                 $sql= "SELECT * FROM san_pham WHERE 1 order by id desc limit 2";
                 $sttm = $this->conn->prepare($sql);

@@ -29,6 +29,7 @@ session_start();
         'add-cart' =>(new homeController())->addTocart(),
         'thanh_toan' =>(new homeController())->thanh_toan(),
         'donhang' => (new homeController())->loadAlldonhang(),
+        'catepro' =>(new homeController())->catePro($_GET['iddm']),
        
         
     

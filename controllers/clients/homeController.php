@@ -11,6 +11,17 @@
             $spnew = $this->homeModel->addnew();
             require_once 'views/clients/home.php';
         }
+        public function catePro($iddm)
+        {
+            if (isset($_GET['iddm']) && $_GET['iddm'] > 0) {
+                $iddm = $_GET['iddm'];
+                $danhmuc = $this->homeModel->allDanhmuc();
+                $catePro = $this->homeModel->allCatePro($iddm);
+                $nameCate = $this->homeModel->load_name_cate($iddm);
+    
+                require_once 'views/clients/product.php';
+            }
+        }
         function products(){
             $sanpham = $this->homeModel->allSanpham();
             require_once 'views/clients/products.php';
@@ -41,7 +52,7 @@
         function cart()  {
             require 'views/clients/cart.php';
         }
-               function addtocart() {
+        function addtocart() {
             if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addtocart'])) {
             
                 $id = $_POST['id'];
@@ -71,8 +82,6 @@
                     array_push($_SESSION['mycart'], $padd);
                 }
             }
-        
-            
             require_once 'views/clients/cart.php';
         }
         function deletecart() {
@@ -116,11 +125,7 @@
         }
        
         function order() {
-            
-            require 'views/clients/order.php';
-           
-         
-            
+            require 'views/clients/order.php';   
         }
         
         
@@ -135,7 +140,7 @@
             
         }
 
-        function dangky () {
+        function dangky() {
 
             if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST)) {
                 $ten_dang_nhap = $_POST['name'];
@@ -159,7 +164,7 @@
                 if(is_array($check_user)) {
                     $_SESSION['tai_khoan'] = $check_user;
                     echo "<script>alert('Đăng nhập thành công.');</script>";
-                 header("Location:index.php");
+                    header("Location:index.php");
                 }
                 else{
                     echo "<script>alert('Tài khoản không tồn tại hoặc mật khẩu sai.');</script>";
@@ -213,10 +218,7 @@ function thanh_toan(){
         header("Location:" .BASE_URL. 'index.php?act=dangky');
         exit;
     }
-   
-   
-   
-    
+
 }
 
 function loadAlldonhang(){
@@ -226,27 +228,5 @@ function loadAlldonhang(){
     require_once 'views/clients/order.php';
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           
-        }
-        
-    
-
+    }
 ?>

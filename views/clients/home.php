@@ -100,7 +100,7 @@
 
             <div class="single-banner banner-1">
                 <span class="pro-label new-label">new</span>
-                <a class="banner-thumb" href="#"><img src="upload/<?= $new['img']?>" alt="" /></a>
+                <a class="banner-thumb" href="?act=detailproduct&id=<?= $new['id'] ?>"><img src="upload/<?= $new['img']?>" alt="" /></a>
 
                 <style>
                 .price {

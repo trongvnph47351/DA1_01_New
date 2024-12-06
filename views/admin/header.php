@@ -33,7 +33,7 @@
 
                     <li><a href="?act=listkhachhang">Khách Hàng</a></li>
                     <li><a href="?act=thongke">Thống Kê</a></li>
-                    <li><a href="/DA1_01_New/index.php">Đăng Xuất</a></li>
+                    <li><a href="/du_an_01_new/index.php">Đăng Xuất</a></li>
                 </ul>
             </div>
         </nav>

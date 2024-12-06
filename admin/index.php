@@ -25,7 +25,10 @@
         'deletecategory' => (new categoryController)->deleteCategory($_GET['id']),
         'deleteproduct' => (new productController) ->deleteProduct($_GET['id']),
         'order' => (new orderController)->listOrder(),
-      
+        'updateOrder' => (new orderController)->updateOrder($_GET['id']),
+        'updateStatus' => (new orderController)->updateStatus($_GET['id']),
+        'deleteOrder' => (new orderController)->deleteOrder($_GET['id']),
+        'chitietdonhang'=>(new orderController)->loadChiTietDonHang($_GET['id']),
         
     }
 ?>

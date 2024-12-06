@@ -116,7 +116,7 @@
                                                     $action= '<a href="?act=huydonhang&id='. $don_hang['id'] .'" > <button> Hủy </button> </a>';
                                                     
                                                     
-                                                }elseif($don_hang['trang_thai'] ==5){
+                                                }elseif($don_hang['trang_thai'] ==4){
                                                     $action= '<a href="?act=update&id='. $don_hang['id'] .'" > <button> Đã hủy </button> </a>';
                                                 }else{
                                                     $action ='<button>Không có hành động</button>';
@@ -139,8 +139,10 @@
                                                             class="button">Xem chi tiết</button></a>
 
 
-                                                    <button class="btn btn-danger btn-sm">Hủy đơn hàng</button>
+
                                                 </td>
+                                                <td>
+                                                    <?=$action?> </td>
                                             </tr>
 
 

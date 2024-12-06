@@ -31,7 +31,7 @@ session_start();
         'donhang' => (new homeController())->loadAlldonhang(),
         'catepro' =>(new homeController())->catePro($_GET['iddm']),
          'chitietdonhang'=>(new homeController())->loadChiTietDonHang(),
-       
+       'huydonhang'=>(new homeController())->huy_donhang($_GET['id']),
     
     }
 ?>

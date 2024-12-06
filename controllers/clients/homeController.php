@@ -218,7 +218,16 @@ function loadChiTietDonHang(){
     $billdetail = $this->homeModel->loadDhchitiet($id);
     require_once "views/clients/orderdetail.php";
 }
-// trang thai
+// huydonhang
+function huy_donhang($id){
+    if(isset($_GET['id'])){
+        $id=$_GET['id'];
+        $this->homeModel->huy_dh($id);
+        
+    }
+    $listdonhang= $this->homeModel->load_all_bill($_SESSION['tai_khoan']['id_tai_khoan']);
+    require_once 'views/clients/order.php';
+}
 
     }
 ?>

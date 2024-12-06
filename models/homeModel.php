@@ -235,12 +235,9 @@ function get_ttdh($n)
             break;
         case '3':
             $tt = "Đã giao hàng";
-            break;
+            break;   
         case '4':
-            $tt="Giao hàng thành công";
-            break;
-        case '5':
-            $tt="Đơn hàng bị hủy";
+            $tt="Đã hủy đơn hàng";
             break;
         default:
          $tt="Đơn hàng mới";
@@ -248,6 +245,17 @@ function get_ttdh($n)
         
     }
     return $tt;
+}
+
+// hủy đơn hàng
+public function huy_dh($id){
+    $status=4;
+    $sql="UPDATE don_hang SET trang_thai =:status WHERE id =:id";
+    $stmt= $this->conn->prepare($sql);
+    $stmt->bindParam(':status', $status, PDO::PARAM_INT);
+    $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+    $stmt->execute();
+    return true;
 }
 
 

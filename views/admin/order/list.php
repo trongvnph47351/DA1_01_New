@@ -13,7 +13,7 @@
                     <th>Địa chỉ</th>
                     <th>Ngày đặt hàng</th>
                     <th>Tổng tiền</th>
-                    <th>Phương thức thanh toán</th>
+                    <th>Trạng thái đơn hàng</th>
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
 
@@ -36,7 +36,7 @@
                                 $trangthai ="Đã giao hàng";
                                 break;
                                 case 4:
-                                    $trangthai ="Giao hàng thành công";
+                                    $trangthai ="Đã hủy đơn hàng";
                                     break;
 default:
 $trangthai ="Đã hủy";
@@ -44,8 +44,9 @@ break;
                     }
 
                     $pttt = ($donhang['pt_thanh_toan']== 1) ? "Thanh toán khi nhận hàng" :"Phương thức khác";
-                    $delete_order= "?act=delete_order&id=" . $donhang['id'];
-                    $update_order = "?act=update_order&id=" . $donhang['id'];
+                    // $delete_order= "?act=delete_order&id=" . $donhang['id'];
+                    $updateOrder = "?act=updateOrder&id=" . $donhang['id'];
+                    $deleteOrder ="?act=deleteOrder&id="  . $donhang['id'];
                     
                     ?>
 
@@ -59,9 +60,10 @@ break;
                     <td><?=($trangthai)?></td>
                     <td><?=($pttt)?></td>
                     <td>
-                        <a href="">Chi tiết đơn hàng</a>
-                        <a href="<?=$delete_order?>">Xóa đơn hàng</a>
-                        <a href="<?=$update_order?>">Cập nhật trạng thái</a>
+                        <a href="?act=chitietdonhang&id=<?= $donhang['id'] ?>">Chi tiết đơn hàng</a>
+
+                        <a href="<?=$updateOrder?>">Cập nhật trạng thái</a>
+                        <a href="<?=$deleteOrder?>">Xóa đơn hàng</a>
                     </td>
                 </tr>
                 <?php endforeach?>

@@ -30,6 +30,7 @@
                     <li><a href="?act=category">Danh Mục</a></li>
                     <li><a href="?act=products">Sản Phẩm</a></li>
                     <li><a href="?act=order">Đơn hàng</a></li>
+                    <li><a href="?act=listcomment">Bình Luận</a></li>
 
                     <li><a href="?act=listkhachhang">Khách Hàng</a></li>
                     <li><a href="?act=thongke">Thống Kê</a></li>

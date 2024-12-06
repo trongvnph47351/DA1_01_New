@@ -6,6 +6,7 @@
     require_once __DIR__ . "/../models/Category.php";
     require_once __DIR__ . "/../models/Product.php";
     require_once __DIR__ . "/../models/Order.php";
+    require_once __DIR__ . "/../models/Comment.php";
 
 
 
@@ -13,6 +14,7 @@
     require_once __DIR__ . "/../controllers/admin/categoryController.php";
     require_once __DIR__ . "/../controllers/admin/productController.php"; 
     require_once __DIR__ . "/../controllers/admin/orderController.php"; 
+    require_once __DIR__ . "/../controllers/admin/commentController.php"; 
     $act = $_GET['act'] ?? '/';
     match ($act) {
         '/' => (new dashboardController)->dashboard(),
@@ -29,6 +31,8 @@
         'updateStatus' => (new orderController)->updateStatus($_GET['id']),
         'deleteOrder' => (new orderController)->deleteOrder($_GET['id']),
         'chitietdonhang'=>(new orderController)->loadChiTietDonHang($_GET['id']),
+        'listcomment'=>(new commentController())->load_comment(),
+        
         
     }
 ?>

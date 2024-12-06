@@ -32,6 +32,8 @@
         'deleteOrder' => (new orderController)->deleteOrder($_GET['id']),
         'chitietdonhang'=>(new orderController)->loadChiTietDonHang($_GET['id']),
         'listcomment'=>(new commentController())->load_comment(),
+        'removecomment'=>(new commentController())->remove_comment($_GET['id']),
+        
         
         
     }

@@ -31,6 +31,13 @@ class Comment {
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
         
     }
+    function delete_comment($id){
+        $sql = "DELETE FROM binh_luan WHERE id_binh_luan =:id";
+        $stmt= $this->conn->prepare($sql);
+        $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+        return $stmt->execute();
+        
+    }
 }
 
 

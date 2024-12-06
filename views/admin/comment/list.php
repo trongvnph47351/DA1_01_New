@@ -25,6 +25,7 @@ include_once ROOT_DIR . "views/admin/header.php";
                         <td><?= $conment['id_san_pham']?></td>
                         <td><?= $conment['noi_dung_binh_luan']?></td>
                         <td><?= $conment['ngay_binh_luan']?></td>
+                        <td><a href="?act=removecomment&id=<?=$conment['id_binh_luan']?>">Xóa </a></td>
                     </tr>
                     <?php endforeach;?>
                 </tbody>

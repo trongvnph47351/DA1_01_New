@@ -163,11 +163,106 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane active" id="reviews">
+                        <div class="pro-tab-info pro-reviews">
+                            <div class="customer-review mb-60">
+                                <h3 class="tab-title title-border mb-30">Đánh giá</h3>
+                                <ul class="product-comments clearfix">
+                                    <div class="tab-pane active" id="reviews">
+                                        <div class="pro-tab-info pro-reviews">
+                                            <div class="customer-review mb-60">
+                                                <ul class="product-comments clearfix">
+                                                    <!-- <li class="mb-30">
+														<div class="pro-reviewer">
+															<img src="img/reviewer/1.jpg" alt="" />
+														</div>
+														<div class="pro-reviewer-comment">
+															<div class="fix">
+																<div class="floatleft mbl-center">
+																	<h5 class="text-uppercase mb-0"><strong>Gerald Barnes</strong></h5>
+																	<p class="reply-date">27 Jun, 2021 at 2:30pm</p>
+																</div>
+																<div class="comment-reply floatright">
+																	<a href="#"><i class="zmdi zmdi-mail-reply"></i></a>
+																	<a href="#"><i class="zmdi zmdi-close"></i></a>
+																</div>
+															</div>
+															<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan egestas elese ifend. Phasellus a felis at est bibendum feugiat ut eget eni Praesent et messages in con sectetur posuere dolor non.</p>
+														</div>
+													</li> -->
+
+                                                </ul>
+                                            </div>
+
+                                            <!-- phần bình luận -->
+                                            <div class="reply-box">
+                                                <form action="" method="">
+                                                    <div class="row">
+                                                        <!-- Hiển thị bình luận sản phẩm -->
+                                                        <table class="table table-responsive">
+
+                                                            <ul class="product-comments clearfix">
+                                                                <li class="mb-30">
+                                                                    <div class="pro-reviewer">
+                                                                        <img src="img/logobinhluan.png" alt="" />
+                                                                    </div>
+                                                                    <div class="pro-reviewer-comment">
+                                                                        <div class="fix">
+                                                                            <div class="floatleft mbl-center">
+                                                                                <h5 class="text-uppercase mb-0">
+                                                                                    <strong></strong>
+                                                                                </h5>
+                                                                                <p class="reply-date">
+
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="comment-reply floatright">
+                                                                                <!-- Thao tác trả lời bình luận có thể thêm ở đây -->
+                                                                            </div>
+                                                                        </div>
+                                                                        <p class="mb-0">
+
+                                                                        </p>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+
+                                                        </table>
+
+                                                        <!-- Form gửi bình luận -->
+                                                        <div class="write_review">
+
+                                                            <div class="form-group">
+                                                                <input type="hidden" name="product_id" value="">
+                                                                <textarea class="form-control" name="noidung" cols="30"
+                                                                    rows="3"
+                                                                    placeholder="Viết đánh giá để mọi người có thể hiểu hơn về sản phẩm"></textarea>
+                                                            </div>
+                                                            <input type="submit" name="guibinhluan">
+
+                                                            <div class="form-group">
+                                                                Vui lòng <a href="login.php">đăng nhập</a> để bình luận!
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                        </div>
+                        <!-- single-product-tab end -->
+
+                    </div>
                 </div>
             </div>
             <!-- single-product-tab end -->
         </div>
     </div>
+
     <!-- PRODUCT-AREA END -->
     <!-- FOOTER START -->
     <?php

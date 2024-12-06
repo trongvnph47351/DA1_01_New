@@ -259,7 +259,39 @@ public function huy_dh($id){
 }
 
 
+//from bình luận
+function insert_comments($userId, $productId,$noidung){
+    $sql = "INSERT INTO binh_luan (id_tai_khoan, id_san_pham, noi_dung_binh_luan, ngay_binh_luan)
+    VALUES (:userId, :productId, :noidung, NOW())";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(':userId',$userId,PDO::PARAM_INT);
+    $stmt->bindParam(':productId',$productId,PDO::PARAM_INT);
+    $stmt->bindParam(':noidung',$noidung,PDO::PARAM_STR);
+    $stmt->execute();
+    return true;
+}
+// hiển thị bình luận
+function loadall_commen($idproduct){
+    $sql="SELECT 
+     binh_luan.id_binh_luan AS comment_id,
+     binh_luan.id_tai_khoan AS id_tai_khoan,
+     binh_luan.id_san_pham AS id_san_pham,
+     binh_luan.noi_dung_binh_luan,
+     binh_luan.ngay_binh_luan,
+     tai_khoan.id_tai_khoan AS id_tai_khoan,
+     tai_khoan.ten_dang_nhap,
+     FROM 
+     binh_luan
+     INNER JOIN tai_khoan ON binh_luan.id_tai_khoan = tai_khoan.id_tai_khoan
+      INNER JOIN san_pham ON binh_luan.id_san_pham = san_pham.id
+      WHERE binh_luan.id_san_phamm = :idproduct ";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->bindParam(':idproduct',$idproduct,PDO::PARAM_INT);
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+     
+}
 
 
 

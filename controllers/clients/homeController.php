@@ -37,6 +37,14 @@
         }
         public function detailProduct($id){
             $oneProduct = $this->homeModel->findProductById($id);
+            $load_all_comment = $this->homeModel->loadall_commen($id);
+            $userID = $_SESSION['tai_khoan']['id_tai_khoan'] ??0;
+            if(isset($_POST['guibinhluan'])){
+                $productId= $_POST["product_id"];
+                $noidung= $_POST["noidung"];
+                $this->homeModel->insert_comments($userID,$productId,$noidung);
+                header('Location'.$_SERVER['HTTP_REFERER']);
+            }
            
             require_once 'views/clients/detailproduct.php';
         }

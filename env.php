@@ -1,5 +1,5 @@
 <?php
-    define('BASE_URL', 'http://localhost/du_an_01_new/');
+    define('BASE_URL', 'http://localhost/DA1_01_New/');
 
     define('DB_HOST', 'localhost');
     define('DB_PORT', '3306');

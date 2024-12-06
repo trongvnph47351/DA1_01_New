@@ -3,20 +3,23 @@
 ?>
 <div class="cart">
     <div class="cart-body">
-        <h3>Danh sách đơn hàng</h3>
+        <div class="alert alert-success">
+            <h3>QUẢN LÝ ĐƠN HÀNG</h3>
+        </div>
         <table class="table text-center">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Tên người nhận</th>
-                    <th>SĐT người nhận</th>
-                    <th>Địa chỉ</th>
-                    <th>Ngày đặt hàng</th>
-                    <th>Tổng tiền</th>
-                    <th>Trạng thái đơn hàng</th>
-                    <th>Trạng thái</th>
-                    <th>Thao tác</th>
-
+                    <th>TÊN NGƯỜI NHẬN</th>
+                    <th>SỐ ĐIỆN THOẠI</th>
+                    <th>ĐỊA CHỈ</th>
+                    <th>NGÀY ĐẶT</th>
+                    <th>TỔNG TIỀN</th>
+                    <th>TRẠNG THÁI</th>
+                    <th>HÌNH THỨC</th>
+                    <th>THAO TÁC</th>
+                    <th>THAO TÁC</th>
+                    <th>THAO TÁC</th>
                 </tr>
             </thead>
             <tbody>
@@ -60,10 +63,13 @@ break;
                     <td><?=($trangthai)?></td>
                     <td><?=($pttt)?></td>
                     <td>
-                        <a href="?act=chitietdonhang&id=<?= $donhang['id'] ?>">Chi tiết đơn hàng</a>
-
-                        <a href="<?=$updateOrder?>">Cập nhật trạng thái</a>
-                        <a href="<?=$deleteOrder?>">Xóa đơn hàng</a>
+                        <button class="btn btn-primary"><a href="?act=chitietdonhang&id=<?= $donhang['id'] ?>">Chi tiết đơn hàng</a></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning"><a href="<?=$updateOrder?>">Cập nhật trạng thái</a></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger"><a onclick="return confirm('Bạn có muốn xóa đơn hàng này không ?')" href="<?=$deleteOrder?>">Xóa đơn hàng</a></button>    
                     </td>
                 </tr>
                 <?php endforeach?>

@@ -3,19 +3,21 @@ include_once ROOT_DIR . "views/admin/header.php";
 ?>
 
 <div class="container">
+    <div class="alert alert-success">
+        <h3>QUẢN LÝ BÌNH LUẬN</h3>
+    </div>   
     <div class="card">
         <div class="card-body">
             <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Tài khoản</th>
-                        <th>Sản phẩm</th>
-                        <th>Bình luận</th>
-                        <th>Ngày bình luận</th>
-                        <th>Thao tác</th>
-
-                    </tr>
+                <thead class="table-success">
+                        <tr>
+                            <th>ID</th>
+                            <th>TÀI KHOẢN</th>
+                            <th>SẢN PHẨM</th>
+                            <th>BÌNH LUẬN</th>
+                            <th>NỘI DUNG BÌNH LUẬN</th>
+                            <th>THAO TÁC</th>
+                        </tr>
                 </thead>
                 <tbody>
                     <?php foreach($list_comment as$conment):?>

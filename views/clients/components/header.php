@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-4 offset-md-4 col-7">
                     <div class="logo text-md-center">
-                        <a href="index.html"><img src="assets/img/logo/logo1.png" width="100px" alt="" /></a>
+                        <a href="?act=/"><img src="assets/img/logo/logo1.png" width="100px" alt="" /></a>
                     </div>
                 </div>
 
@@ -57,23 +57,9 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="?act=category">DANH MỤC</a>
-                    <div class="mega-menu menu-scroll">
-                        <div class="table">
-                            <div class="table-cell">
-                                <div class="full-width">
-                                    <div class="mega-menu-img">
-                                        <a href="single-product.html"><img src="assets/img/megamenu/1.jpg" alt="" /></a>
-                                    </div>
-                                </div>
-                                <div class="pb-80"></div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="?act=news">TIN TỨC</a></li>
+                <li><a href="?act=category">DANH MỤC</a></li>
                 <li><a href="?act=contact">LIÊN HỆ</a></li>
-                <li><a href="?act=myaccount">TÀI KHOẢN</a></li>
+
             </ul>
         </nav>
     </div>

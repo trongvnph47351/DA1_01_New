@@ -12,17 +12,14 @@ session_start();
         '/' => (new homeController())->home(),
         'products' => (new homeController())->products(),
         'category' => (new homeController())->category(),
-        'news' => (new homeController())->new(),
         'contact' => (new homeController())->contact(),
         'detailproduct' => (new homeController())->detailproduct($_GET['id']),
-        'detailnew' => (new homeController())->detailnew(),
         'addTocart'=> (new homeController())->addtocart(),
         'deletecart' =>(new homeController())->deletecart(),
         'cart' => (new homeController())->cart(),
         'checkout' => (new homeController())->checkout(),
         'order' => (new homeController())->order(),
         'wishlist' => (new homeController())->wishlist(),
-        'myaccount' => (new homeController())->myaccount(),
         'dangky' =>(new homeController())->dangky(),
         'dangnhap' =>(new homeController())->dangnhap(),
         'dangxuat'=>(new homeController())->dangxuat(),
@@ -30,8 +27,8 @@ session_start();
         'thanh_toan' =>(new homeController())->thanh_toan(),
         'donhang' => (new homeController())->loadAlldonhang(),
         'catepro' =>(new homeController())->catePro($_GET['iddm']),
-         'chitietdonhang'=>(new homeController())->loadChiTietDonHang(),
-       'huydonhang'=>(new homeController())->huy_donhang($_GET['id']),
+        'chitietdonhang'=>(new homeController())->loadChiTietDonHang(),
+        'huydonhang'=>(new homeController())->huy_donhang($_GET['id']),
     
     }
 ?>

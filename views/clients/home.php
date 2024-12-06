@@ -343,8 +343,8 @@
                 <div class="product-slider style-2 arrow-left-right">
 
                     <?php
-									foreach($sanpham as $key => $sp){
-								?>
+						foreach($sanpham as $key => $sp){
+					?>
 
                     <div class="col-12">
                         <div class="single-product">
@@ -401,20 +401,14 @@
                                 <div class="discount-product">
                                     <div class="row">
                                         <div class="col-lg-5 col-md-5 col-sm-6">
-                                            <a href="single-blog.html"> <img src="assets/img/discount/5.jpg" alt="" />
+                                            <a href="?act=products"> <img src="assets/img/discount/1.jpg" alt="" />
                                             </a>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-6">
                                             <div class="discount-info">
-                                                <h1 class="text-dark-red">Discount 50%</h1>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                                    sed does
-                                                    eiusmodes tempor incididunt ut labore labore et labore
-                                                    et dolore
-                                                    magna
-                                                    aliqua. Ut enim ad minim venim.</p>
-                                                <a class="button-2 text-dark-red text-uppercase" href="#">GET DISCOUNT
-                                                    <i class="zmdi zmdi-long-arrow-right"></i></a>
+                                                <h1 class="text-dark-red">Giảm giá 50%</h1>
+                                                <p>Giày thể thao Adidas, kiểu dáng sang trọng. Nâng niu bàn chân Việt</p>
+                                                <a href="?act=products">Xem ngay</a>
                                             </div>
                                         </div>
                                     </div>
@@ -427,20 +421,21 @@
                 </div>
                 <!-- up-comming-product start -->
                 <div class="col-lg-4 col-md-4">
-                    <div class="up-comming-product">
-                        <div class="up-comming-img">
-                            <a href="#"><img src="assets/img/product/up-comming.jpg" alt="" /></a>
-                        </div>
-                        <div class="up-comming-info text-center">
-                            <div class="up-comming-brief">
-                                <h4 class="post-title"><a href="#">Indoor Furniture</a></h4>
-                                <h4 class="comming-pro-price">$ 200.00</h4>
-                            </div>
-                            <div class="count-down">
-                                <div data-countdown="2022/10/08"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="discount-product">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-sm-6">
+                                <a href="?act=products"> <img src="assets/img/discount/1.jpg" alt="" /></a>
+                                    </div>
+                                        <div class="col-lg-7 col-md-7 col-sm-6">
+                                            <div class="discount-info">
+                                                <h3 class="text-dark-red">Sắp diễn ra</h3>
+                                                <p>Giày thể thao Nike, kiểu dáng sang trọng. Nâng niu bàn chân Việt</p>
+                                                <a class="button-2 text-dark-red text-uppercase" href="?act=products">Xem ngay 
+                                                </a>
+                                        </div>
+                                    </div>
+                                </div>
+                         </div>
                 </div>
                 <!-- up-comming-product end -->
             </div>
@@ -504,52 +499,6 @@
 </div>
 </div>
 <!-- PURCHASE-ONLINE-AREA END -->
-<!-- BLGO-AREA START -->
-<div class="blog-area blog-2 pt-50">
-    <div class="container">
-        <!-- Section-title start -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title text-center">
-                    <h2 class="title-border">Tin Tức</h2>
-                </div>
-            </div>
-        </div>
-        <!-- Section-title end -->
-        <div class="row">
-            <!-- Single-blog start -->
-            <div class="col-lg-4 col-md-6">
-                <div class="single-blog mt-30">
-                    <div class="blog-photo">
-                        <a href="#"><img src="assets/img/blog/5.jpg" alt="" /></a>
-                        <div class="like-share text-center fix">
-                            <a href="#"><i class="zmdi zmdi-favorite"></i><span>89 Like</span></a>
-                            <a href="#"><i class="zmdi zmdi-comments"></i><span>59 Comments</span></a>
-                            <a href="#"><i class="zmdi zmdi-share"></i><span>29 Share</span></a>
-                        </div>
-                    </div>
-                    <div class="blog-info">
-                        <div class="post-meta fix">
-                            <div class="post-date floatleft"><span class="text-dark-red">30</span></div>
-                            <div class="post-year floatleft">
-                                <p class="text-uppercase text-dark-red mb-0">June, 2021</p>
-                                <h4 class="post-title"><a href="?act=detailnew" tabindex="0">Farniture drawing
-                                        2021</a>
-                                </h4>
-                            </div>
-                        </div>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered If you are going to use a passage Lorem Ipsum, you alteration in some form.
-                        </p>
-                        <a href="#" class="button-2 text-dark-red">Read more...</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single-blog end -->
-        </div>
-    </div>
-</div>
-<!-- BLGO-AREA END -->
 <!-- SUBSCRIVE-AREA START -->
 <div class="subscribe-area pt-80">
     <div class="row">

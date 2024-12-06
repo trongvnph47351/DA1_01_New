@@ -279,12 +279,15 @@ function loadall_commen($idproduct){
      binh_luan.noi_dung_binh_luan,
      binh_luan.ngay_binh_luan,
      tai_khoan.id_tai_khoan AS id_tai_khoan,
-     tai_khoan.ten_dang_nhap,
+     tai_khoan.ten_dang_nhap
      FROM 
      binh_luan
-     INNER JOIN tai_khoan ON binh_luan.id_tai_khoan = tai_khoan.id_tai_khoan
-      INNER JOIN san_pham ON binh_luan.id_san_pham = san_pham.id
-      WHERE binh_luan.id_san_phamm = :idproduct ";
+     INNER JOIN
+       tai_khoan ON binh_luan.id_tai_khoan = tai_khoan.id_tai_khoan
+     INNER JOIN
+       san_pham ON binh_luan.id_san_pham = san_pham.id
+     WHERE 
+        binh_luan.id_san_pham = :idproduct";
       $stmt = $this->conn->prepare($sql);
       $stmt->bindParam(':idproduct',$idproduct,PDO::PARAM_INT);
       $stmt->execute();

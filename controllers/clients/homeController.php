@@ -38,7 +38,7 @@
         public function detailProduct($id){
             $oneProduct = $this->homeModel->findProductById($id);
             $load_all_comment = $this->homeModel->loadall_commen($id);
-            $userID = $_SESSION['tai_khoan']['id_tai_khoan'] ??0;
+            $userID = $_SESSION['tai_khoan']['id_tai_khoan'] ?? 0;
             if(isset($_POST['guibinhluan'])){
                 $productId= $_POST["product_id"];
                 $noidung= $_POST["noidung"];

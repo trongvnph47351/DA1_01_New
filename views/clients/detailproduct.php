@@ -196,24 +196,28 @@
 
                                             <!-- phần bình luận -->
                                             <div class="reply-box">
-                                                <form action="" method="">
-                                                    <div class="row">
+                                                <form action="?act=detailproduct&id=<?=$id?>" method="post">
+                                                    <div class=" row">
                                                         <!-- Hiển thị bình luận sản phẩm -->
                                                         <table class="table table-responsive">
-
-                                                            <ul class="product-comments clearfix">
+                                                            <?php
+                                                              foreach ($load_all_comment as $comment):
+                                                              extract($comment);
+                                                            ?>
+                                                            <ul class=" product-comments clearfix">
                                                                 <li class="mb-30">
                                                                     <div class="pro-reviewer">
-                                                                        <img src="img/logobinhluan.png" alt="" />
+                                                                        <img src="upload/logo1.png" alt="" />
                                                                     </div>
                                                                     <div class="pro-reviewer-comment">
                                                                         <div class="fix">
                                                                             <div class="floatleft mbl-center">
                                                                                 <h5 class="text-uppercase mb-0">
-                                                                                    <strong></strong>
+                                                                                    <strong>
+                                                                                        <?=htmlspecialchars($ten_dang_nhap)?></strong>
                                                                                 </h5>
                                                                                 <p class="reply-date">
-
+                                                                                    <?=htmlspecialchars($ngay_binh_luan)?>
                                                                                 </p>
                                                                             </div>
                                                                             <div class="comment-reply floatright">
@@ -221,29 +225,34 @@
                                                                             </div>
                                                                         </div>
                                                                         <p class="mb-0">
-
+                                                                            <?= nl2br(htmlspecialchars($noi_dung_binh_luan))?>
                                                                         </p>
                                                                     </div>
                                                                 </li>
                                                             </ul>
-
+                                                            <?php endforeach ;?>
                                                         </table>
 
                                                         <!-- Form gửi bình luận -->
                                                         <div class="write_review">
-
+                                                            <?php
+                                                            if(isset($_SESSION['tai_khoan'])):
+                                                            ?>
                                                             <div class="form-group">
-                                                                <input type="hidden" name="product_id" value="">
+                                                                <input type="hidden" name="product_id"
+                                                                    value="<?=htmlspecialchars($id)?>">
                                                                 <textarea class="form-control" name="noidung" cols="30"
                                                                     rows="3"
                                                                     placeholder="Viết đánh giá để mọi người có thể hiểu hơn về sản phẩm"></textarea>
                                                             </div>
-                                                            <input type="submit" name="guibinhluan">
-
+                                                            <input type="submit" name="guibinhluan"
+                                                                value="Gửi bình luận">
+                                                            <?php else:?>
                                                             <div class="form-group">
-                                                                Vui lòng <a href="login.php">đăng nhập</a> để bình luận!
+                                                                Vui lòng <a href="?act=dangky">đăng nhập</a> để bình
+                                                                luận!
                                                             </div>
-
+                                                            <?php endif;?>
                                                         </div>
                                                     </div>
                                                 </form>
